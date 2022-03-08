@@ -6,10 +6,10 @@ import { RouterModule} from '@angular/router';
  
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { MovieDetailsComponent } from './movie-details/movie-details.component'; 
+import { MovieDetailsComponent } from './movies/movie-details/movie-details.component'; 
 import { FormsModule } from '@angular/forms';
-import { MovieComponent } from './movie/movie.component';
-import { UserComponent } from './user/user.component';
+import { MovieComponent } from './movies/movie/movie.component';
+import { UserComponent } from './users/user/user.component';
 
 @NgModule({
   declarations: [
