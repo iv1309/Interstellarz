@@ -9,10 +9,10 @@ import { UserComponent } from './users/user/user.component';
  
 const routes: Routes = [
   { path: '', component: HomeComponent},
+  { path: 'movies', loadChildren: () => import('./movies/movies.module').then(x => x.MoviesModule)},
   { path: 'home',   component: HomeComponent   },
   { path: 'login',   component: LoginComponent   },
   { path: 'detail/:id', component: MovieDetailsComponent },
-  { path: 'movies', component: MovieComponent },
   { path: 'user', component: UserComponent }
 ];
  

@@ -10,17 +10,17 @@ import { MovieDetailsComponent } from './movies/movie-details/movie-details.comp
 import { FormsModule } from '@angular/forms';
 import { MovieComponent } from './movies/movie/movie.component';
 import { UserComponent } from './users/user/user.component';
+import { MoviesModule } from './movies/movies.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
-    MovieDetailsComponent,
-    MovieComponent,
-    UserComponent,
+    UserComponent
   ],
   imports: [
     CommonModule,
+    MoviesModule,
     FeaturesRoutingModule,
     RouterModule,
     FormsModule
