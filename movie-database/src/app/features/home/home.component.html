@@ -1,1 +1,7 @@
 <h2>Movies Library</h2>
+<div class="movies-top-ten">
+    <a *ngFor="let movie of movies"
+      routerLink="/detail/{{movie.id}}">
+      {{movie.name}}
+    </a>
+  </div>

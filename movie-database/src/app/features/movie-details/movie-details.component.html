@@ -1,0 +1,10 @@
+<div *ngIf="movie">
+
+    <h2>MOVIE: {{movie.name | uppercase}}</h2>
+    <div><span>id: </span>{{movie.id}}</div>
+    <div>
+      <label for="movie-name">Movie name: </label>
+      <input id="movie-name" [(ngModel)]="movie.name" placeholder="name">
+    </div>
+    <button type="button" (click)="goBack()">go back</button>
+  </div>

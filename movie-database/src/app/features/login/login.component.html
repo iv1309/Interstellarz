@@ -1,1 +1,17 @@
-<h1>LOGIN</h1>
+<div *ngIf="router.url == '/login'">
+    <div class="centered">
+        <h1>Login</h1>
+        <form>
+            <div id="username-container">
+                <div class="input">
+                    <input class="user-input" type="text" name="username" [(ngModel)]="username" placeholder="Username">
+                </div>
+            </div>
+            <div class="input">
+                <br>
+                <input class="user-input" type="password" name="password" [(ngModel)]="password" placeholder="Password">
+            </div>
+            <button type="button" (click)="LoginUser()">Submit</button>
+        </form>
+    </div>
+</div>
