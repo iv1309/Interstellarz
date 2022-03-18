@@ -1,0 +1,19 @@
+package com.moviesapi;
+
+import java.io.IOException;
+
+public interface MovieDAO {
+
+    Movie[] getMovies() throws IOException;
+
+    Movie[] findMovies(String containsText) throws IOException;
+
+    Movie getMovie(int id) throws IOException;
+
+    Movie createMovie(Movie movie) throws IOException;
+
+    Movie updateMovie(Movie movie) throws IOException;
+
+    boolean deleteMovie(int id) throws IOException;
+
+}
