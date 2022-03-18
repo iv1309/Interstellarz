@@ -7,13 +7,15 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieComponent } from './movie/movie.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CollectionsComponent } from './collections/collections.component';
 
 
 @NgModule({
   declarations: [
     MovieComponent,
     MovieDetailsComponent,
-    SearchMovieComponent
+    SearchMovieComponent,
+    CollectionsComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   exports: [
-    SearchMovieComponent
+    SearchMovieComponent,
+    CollectionsComponent
   ]
 })
 export class MoviesModule { }
