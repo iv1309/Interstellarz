@@ -4,21 +4,20 @@
     <a routerLink="/detail/{{movie.id}}">
       <span class="badge">{{movie.id}}</span> {{movie.name}}
 
-      <div>
-        <label for="new-movie">Movie name: </label>
-        <input id="new-movie" #movieName />
-      
-        <!-- (click) passes input value to add() and then clears the input -->
-        <button type="button" class="add-button" (click)="add(movieName.value); movieName.value=''">
-          Add movie
-        </button>
-        
-        <button type="button" class="delete" title="delete movie"
-        (click)="delete(movie)">x</button>
-      </div>
-
+      <button type="button" class="delete" title="delete movie"
+      (click)="delete(movie)">x</button>
     </a>
   </li>
 </ul>
+
+<div>
+  <label for="new-movie">Movie name: </label>
+  <input id="new-movie" #movieName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(movieName.value); movieName.value=''">
+    Add movie
+  </button>
+</div>
 
 
