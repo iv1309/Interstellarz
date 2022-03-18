@@ -56,6 +56,13 @@ export class CollectionsService {
     );
   }
 
+  addMovieToCollection(movie: Movie, id: number): Observable<Movie> {
+    const url = `${this.collectionsUrl}/${id}`;
+
+    return this.http.post<Movie>(url, movie, this.httpOptions).pipe(
+      catchError(this.handleError<Movie>('addMovieToCollection'))
+    );
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

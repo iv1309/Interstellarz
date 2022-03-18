@@ -21,7 +21,7 @@ import com.movies.api.moviesapi.persistence.MovieDAO;
 
 
 @RestController
-@RequestMapping("heroes")
+@RequestMapping("movies")
 public class MovieController {
     private static final Logger LOG = Logger.getLogger(MovieController.class.getName());
     private MovieDAO movieDao;
@@ -101,7 +101,7 @@ public class MovieController {
     }
 
     @PutMapping("")
-    public ResponseEntity<Movie> updateHero(@RequestBody Movie movie) {
+    public ResponseEntity<Movie> updateMovie(@RequestBody Movie movie) {
         LOG.info("PUT /movies " + movie);
 
         // Replace below with your implementation

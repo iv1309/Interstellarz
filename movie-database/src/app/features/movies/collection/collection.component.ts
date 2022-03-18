@@ -37,9 +37,14 @@ export class CollectionComponent implements OnInit {
 
   add(name: string): void {
     name = name.trim();
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     if (!name) { return; }
-    this.collection.push({ name } as Movie);
+    this.collectionService.addMovieToCollection({ name } as Movie, id)
+      .subscribe((movie: Movie) => {
+        this.collection.push({ name } as Movie);
+      });
     //search for movie
+    //movies end up deleting themselves
   }
 
   delete(movie: Movie): void {

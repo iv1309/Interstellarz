@@ -102,7 +102,7 @@ public class UserController {
     }
 
     @PutMapping("")
-    public ResponseEntity<User> updateHero(@RequestBody User user) {
+    public ResponseEntity<User> updateUser(@RequestBody User user) {
         LOG.info("PUT /users " + user);
 
         // Replace below with your implementation
