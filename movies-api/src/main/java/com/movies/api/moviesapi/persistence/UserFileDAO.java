@@ -1,4 +1,4 @@
-package com.moviesapi;
+package com.movies.api.moviesapi.persistence;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,14 +8,23 @@ import java.util.TreeMap;
 import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.movies.api.moviesapi.model.User;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * Implements the functionality for JSON file-based peristance for Products
+ * 
+ * {@literal @}Component Spring annotation instantiates a single instance of this
+ * class and injects the instance into other classes as needed
+ * 
+ * @author Team 1
+ */
 @Component
-public class MovieFileDAO implements MovieDAO{
-    private static final Logger LOG = Logger.getLogger(MovieFileDAO.class.getName());
-    Map<Integer,Movie> movies;   // Provides a local cache of the hero objects
+public class UserFileDAO implements UserDAO{
+    private static final Logger LOG = Logger.getLogger(UserFileDAO.class.getName());
+    Map<Integer,User> users;   // Provides a local cache of the hero objects
                                 // so that we don't need to read from the file
                                 // each time
     private ObjectMapper objectMapper;  // Provides conversion between Hero
@@ -24,7 +33,7 @@ public class MovieFileDAO implements MovieDAO{
     private static int nextId;  // The next Id to assign to a new hero
     private String filename;    // Filename to read from and write to
 
-    public MovieFileDAO(@Value("${movies.file}") String filename,ObjectMapper objectMapper) throws IOException {
+    public UserFileDAO(@Value("${users.file}") String filename,ObjectMapper objectMapper) throws IOException {
         this.filename = filename;
         this.objectMapper = objectMapper;
         load();  // load the heroes from the file
@@ -36,48 +45,48 @@ public class MovieFileDAO implements MovieDAO{
         return id;
     }
 
-    private Movie[] getMoviesArray() {
-        return getMoviesArray(null);
+    private User[] getUsersArray() {
+        return getUsersArray(null);
     }
 
-    private Movie[] getMoviesArray(String containsText) { // if containsText == null, no filter
-        ArrayList<Movie> movieArrayList = new ArrayList<>();
+    private User[] getUsersArray(String containsText) { // if containsText == null, no filter
+        ArrayList<User> userArrayList = new ArrayList<>();
 
-        for (Movie movie : movies.values()) {
-            if (containsText == null || movie.getName().contains(containsText)) {
-                movieArrayList.add(movie);
+        for (User user : users.values()) {
+            if (containsText == null || user.getName().contains(containsText)) {
+                userArrayList.add(user);
             }
         }
 
-        Movie[] movieArray = new Movie[movieArrayList.size()];
-        movieArrayList.toArray(movieArray);
-        return movieArray;
+        User[] userArray = new User[userArrayList.size()];
+        userArrayList.toArray(userArray);
+        return userArray;
     }
 
     private boolean save() throws IOException {
-        Movie[] movieArray = getMoviesArray();
+        User[] userArray = getUsersArray();
 
         // Serializes the Java Objects to JSON objects into the file
         // writeValue will thrown an IOException if there is an issue
         // with the file or reading from the file
-        objectMapper.writeValue(new File(filename),movieArray);
+        objectMapper.writeValue(new File(filename),userArray);
         return true;
     }
 
     private boolean load() throws IOException {
-        movies = new TreeMap<>();
+        users = new TreeMap<>();
         nextId = 0;
 
         // Deserializes the JSON objects from the file into an array of heroes
         // readValue will throw an IOException if there's an issue with the file
         // or reading from the file
-        Movie[] movieArray = objectMapper.readValue(new File(filename),Movie[].class);
+        User[] userArray = objectMapper.readValue(new File(filename),User[].class);
 
         // Add each hero to the tree map and keep track of the greatest id
-        for (Movie movie : movieArray) {
-            movies.put(movie.getId(),movie);
-            if (movie.getId() > nextId)
-                nextId = movie.getId();
+        for (User user : userArray) {
+            users.put(user.getId(),user);
+            if (user.getId() > nextId)
+                nextId = user.getId();
         }
         // Make the next id one greater than the maximum from the file
         ++nextId;
@@ -88,9 +97,9 @@ public class MovieFileDAO implements MovieDAO{
     ** {@inheritDoc}
      */
     @Override
-    public Movie[] getMovies() {
-        synchronized(movies) {
-            return getMoviesArray();
+    public User[] getUsers() {
+        synchronized(users) {
+            return getUsersArray();
         }
     }
 
@@ -98,9 +107,9 @@ public class MovieFileDAO implements MovieDAO{
     ** {@inheritDoc}
      */
     @Override
-    public Movie[] findMovies(String containsText) {
-        synchronized(movies) {
-            return getMoviesArray(containsText);
+    public User[] findUsers(String containsText) {
+        synchronized(users) {
+            return getUsersArray(containsText);
         }
     }
 
@@ -108,10 +117,10 @@ public class MovieFileDAO implements MovieDAO{
     ** {@inheritDoc}
      */
     @Override
-    public Movie getMovie(int id) {
-        synchronized(movies) {
-            if (movies.containsKey(id))
-                return movies.get(id);
+    public User getUser(int id) {
+        synchronized(users) {
+            if (users.containsKey(id))
+                return users.get(id);
             else
                 return null;
         }
@@ -121,14 +130,14 @@ public class MovieFileDAO implements MovieDAO{
     ** {@inheritDoc}
      */
     @Override
-    public Movie createMovie(Movie movie) throws IOException {
-        synchronized(movies) {
+    public User createUser(User user) throws IOException {
+        synchronized(users) {
             // We create a new hero object because the id field is immutable
             // and we need to assign the next unique id
-            Movie newMovie = new Movie(nextId(),movie.getName());
-            movies.put(newMovie.getId(),newMovie);
+            User newUser = new User(nextId(),user.getName());
+            users.put(newUser.getId(),newUser);
             save(); // may throw an IOException
-            return newMovie;
+            return newUser;
         }
     }
 
@@ -136,14 +145,14 @@ public class MovieFileDAO implements MovieDAO{
     ** {@inheritDoc}
      */
     @Override
-    public Movie updateMovie(Movie movie) throws IOException {
-        synchronized(movies) {
-            if (movies.containsKey(movie.getId()) == false)
+    public User updateUser(User user) throws IOException {
+        synchronized(users) {
+            if (users.containsKey(user.getId()) == false)
                 return null;  // hero does not exist
 
-            movies.put(movie.getId(),movie);
+            users.put(user.getId(),user);
             save(); // may throw an IOException
-            return movie;
+            return user;
         }
     }
 
@@ -151,10 +160,10 @@ public class MovieFileDAO implements MovieDAO{
     ** {@inheritDoc}
      */
     @Override
-    public boolean deleteMovie(int id) throws IOException {
-        synchronized(movies) {
-            if (movies.containsKey(id)) {
-                movies.remove(id);
+    public boolean deleteUser(int id) throws IOException {
+        synchronized(users) {
+            if (users.containsKey(id)) {
+                users.remove(id);
                 return save();
             }
             else

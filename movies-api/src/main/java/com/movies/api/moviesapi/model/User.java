@@ -1,18 +1,18 @@
-package com.moviesapi;
+package com.movies.api.moviesapi.model;
 
 import java.util.logging.Logger;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Movie {
-    private static final Logger LOG = Logger.getLogger(Movie.class.getName());
+public class User {
+    private static final Logger LOG = Logger.getLogger(User.class.getName());
 
-    static final String STRING_FORMAT = "Movie [id=%d, name=%s]";
+    static final String STRING_FORMAT = "User [id=%d, name=%s]";
 
     @JsonProperty("id") private int id;
     @JsonProperty("name") private String name;
 
-    public Movie(@JsonProperty("id") int id, @JsonProperty("name") String name) {
+    public User(@JsonProperty("id") int id, @JsonProperty("name") String name) {
         this.id = id;
         this.name = name;
     }

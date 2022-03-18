@@ -1,11 +1,11 @@
-package com.moviesapi;
+package com.movies.api.moviesapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MoviesApiApplication {
+public class UsersApiApplication {
     public static void main(String[] args) {
-		SpringApplication.run(MoviesApiApplication.class, args);
+		SpringApplication.run(UsersApiApplication.class, args);
 	}
 }

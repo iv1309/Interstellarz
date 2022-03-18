@@ -1,4 +1,4 @@
-package com.moviesapi;
+package com.movies.api.moviesapi.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,28 +12,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@RestController
-@RequestMapping("movies")
-public class MovieController {
-    private static final Logger LOG = Logger.getLogger(MovieController.class.getName());
-    private MovieDAO movieDao;
+import com.movies.api.moviesapi.model.User;
+import com.movies.api.moviesapi.persistence.UserDAO;
 
-    public MovieController(MovieDAO movieDao) {
-        this.movieDao = movieDao;
+/**
+ * Handles the REST API requests for the Product resource
+ * <p>
+ * {@literal @}RestController Spring annotation identifies this class as a REST API
+ * method handler to the Spring framework
+ * 
+ * @author Team 1
+ */
+
+@RestController
+@RequestMapping("users")
+public class UserController {
+    private static final Logger LOG = Logger.getLogger(UserController.class.getName());
+    private UserDAO userDao;
+
+    public UserController(UserDAO userDao) {
+        this.userDao = userDao;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Movie> getMovie(@PathVariable int id) {
-        LOG.info("GET /movies/" + id);
+    public ResponseEntity<User> getUser(@PathVariable int id) {
+        LOG.info("GET /users/" + id);
         try {
-            Movie movie = movieDao.getMovie(id);
-            if (movie != null)
-                return new ResponseEntity<Movie>(movie,HttpStatus.OK);
+            User user = userDao.getUser(id);
+            if (user != null)
+                return new ResponseEntity<User>(user,HttpStatus.OK);
             else
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -44,14 +55,14 @@ public class MovieController {
     }
 
     @GetMapping("")
-    public ResponseEntity<Movie[]> getMovies() {
-        LOG.info("GET /movies");
+    public ResponseEntity<User[]> getUsers() {
+        LOG.info("GET /users");
 
         // Replace below with your implementation
         try{
-            Movie movie[] = movieDao.getMovies();
-            if(movie != null){
-                return new ResponseEntity<Movie[]>(movie,HttpStatus.OK);
+            User user[] = userDao.getUsers();
+            if(user != null){
+                return new ResponseEntity<User[]>(user,HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
@@ -62,14 +73,14 @@ public class MovieController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<Movie[]> searchMovies(@RequestParam String name) {
-        LOG.info("GET /movies/?name="+name);
+    public ResponseEntity<User[]> searchUsers(@RequestParam String name) {
+        LOG.info("GET /users/?name="+name);
 
         // Replace below with your implementation
         try{
-            Movie movie[] = movieDao.findMovies(name);
-            if(movie != null){
-                return new ResponseEntity<Movie[]>(movie,HttpStatus.OK);
+            User user[] = userDao.findUsers(name);
+            if(user != null){
+                return new ResponseEntity<User[]>(user,HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
@@ -80,14 +91,14 @@ public class MovieController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Movie> createMovie(@RequestBody Movie movie) {
-        LOG.info("POST /movies " + movie);
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        LOG.info("POST /users " + user);
 
         // Replace below with your implementation
         try{
-            movie = movieDao.createMovie(movie);
-            if(movie != null){
-                return new ResponseEntity<Movie>(movie,HttpStatus.CREATED);
+            user = userDao.createUser(user);
+            if(user != null){
+                return new ResponseEntity<User>(user,HttpStatus.CREATED);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
@@ -98,14 +109,14 @@ public class MovieController {
     }
 
     @PutMapping("")
-    public ResponseEntity<Movie> updateHero(@RequestBody Movie movie) {
-        LOG.info("PUT /movies " + movie);
+    public ResponseEntity<User> updateHero(@RequestBody User user) {
+        LOG.info("PUT /users " + user);
 
         // Replace below with your implementation
         try{
-            movie = movieDao.updateMovie(movie);
-            if(movie != null){
-                return new ResponseEntity<Movie>(movie,HttpStatus.OK);
+            user = userDao.updateUser(user);
+            if(user != null){
+                return new ResponseEntity<User>(user,HttpStatus.OK);
             }else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
@@ -116,12 +127,12 @@ public class MovieController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Movie> deleteMovie(@PathVariable int id) {
-        LOG.info("DELETE /movies/" + id);
+    public ResponseEntity<User> deleteUser(@PathVariable int id) {
+        LOG.info("DELETE /users/" + id);
 
         // Replace below with your implementation
         try{
-            if(movieDao.deleteMovie(id)){
+            if(userDao.deleteUser(id)){
                 return new ResponseEntity<>(HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
