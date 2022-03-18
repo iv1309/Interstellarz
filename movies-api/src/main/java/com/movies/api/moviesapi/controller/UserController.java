@@ -1,3 +1,4 @@
+/**
 package com.movies.api.moviesapi.controller;
 
 import org.springframework.http.HttpStatus;
@@ -19,14 +20,6 @@ import java.util.logging.Logger;
 import com.movies.api.moviesapi.model.User;
 import com.movies.api.moviesapi.persistence.UserDAO;
 
-/**
- * Handles the REST API requests for the Product resource
- * <p>
- * {@literal @}RestController Spring annotation identifies this class as a REST API
- * method handler to the Spring framework
- * 
- * @author Team 1
- */
 
 @RestController
 @RequestMapping("users")
@@ -143,3 +136,4 @@ public class UserController {
         }
     }
 }
+*/

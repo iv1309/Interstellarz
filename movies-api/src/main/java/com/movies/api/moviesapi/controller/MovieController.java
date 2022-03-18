@@ -19,17 +19,9 @@ import java.util.logging.Logger;
 import com.movies.api.moviesapi.model.Movie;
 import com.movies.api.moviesapi.persistence.MovieDAO;
 
-/**
- * Handles the REST API requests for the Product resource
- * <p>
- * {@literal @}RestController Spring annotation identifies this class as a REST API
- * method handler to the Spring framework
- * 
- * @author Team 1
- */
 
 @RestController
-@RequestMapping("movies")
+@RequestMapping("heroes")
 public class MovieController {
     private static final Logger LOG = Logger.getLogger(MovieController.class.getName());
     private MovieDAO movieDao;

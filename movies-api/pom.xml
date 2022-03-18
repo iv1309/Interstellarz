@@ -7,11 +7,11 @@
 		<version>2.5.6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.products.api</groupId>
-	<artifactId>products-api</artifactId>
+	<groupId>com.movies.api.moviesapi</groupId>
+	<artifactId>movies-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>products-api</name>
-	<description>API for Tour of Products</description>
+	<name>movies-api</name>
+	<description>API for Movies</description>
 	<properties>
 		<java.version>11</java.version>
 		<jacoco.version>0.8.7</jacoco.version>
@@ -74,7 +74,7 @@
 					  </execution>
 				</executions>
 				<configuration>
-					<mainClass>com.products.api.productsapi.ProductsApiApplication</mainClass>
+					<mainClass>com.movies.api.moviesapi.MoviesApiApplication</mainClass>
 					<arguments></arguments>
 				</configuration>
 			</plugin>
@@ -171,7 +171,7 @@
 					  <descriptors>
 						<descriptor>src/assembly/zip.xml</descriptor>
 					  </descriptors>
-					  <finalName>products-api</finalName>
+					  <finalName>movies-api</finalName>
 					  <appendAssemblyId>false</appendAssemblyId>
 					</configuration>
 					<goals>

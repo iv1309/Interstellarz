@@ -1,4 +1,6 @@
-package com.movies.api.moviesapi.model;
+
+/**
+ package com.movies.api.moviesapi.model;
 
 import java.util.logging.Logger;
 
@@ -28,3 +30,4 @@ public class User {
         return String.format(STRING_FORMAT,id,name);
     }
 }
+*/

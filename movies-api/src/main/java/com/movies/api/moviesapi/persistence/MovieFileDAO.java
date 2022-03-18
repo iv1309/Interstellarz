@@ -33,7 +33,7 @@ public class MovieFileDAO implements MovieDAO{
     private static int nextId;  // The next Id to assign to a new hero
     private String filename;    // Filename to read from and write to
 
-    public MovieFileDAO(@Value("${movies.file}") String filename,ObjectMapper objectMapper) throws IOException {
+    public MovieFileDAO(@Value("${products.file}") String filename,ObjectMapper objectMapper) throws IOException {
         this.filename = filename;
         this.objectMapper = objectMapper;
         load();  // load the heroes from the file

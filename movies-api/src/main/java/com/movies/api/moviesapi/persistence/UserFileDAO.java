@@ -1,3 +1,4 @@
+/**
 package com.movies.api.moviesapi.persistence;
 
 import java.io.File;
@@ -13,14 +14,6 @@ import com.movies.api.moviesapi.model.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-/**
- * Implements the functionality for JSON file-based peristance for Products
- * 
- * {@literal @}Component Spring annotation instantiates a single instance of this
- * class and injects the instance into other classes as needed
- * 
- * @author Team 1
- */
 @Component
 public class UserFileDAO implements UserDAO{
     private static final Logger LOG = Logger.getLogger(UserFileDAO.class.getName());
@@ -93,9 +86,6 @@ public class UserFileDAO implements UserDAO{
         return true;
     }
 
-    /**
-    ** {@inheritDoc}
-     */
     @Override
     public User[] getUsers() {
         synchronized(users) {
@@ -103,9 +93,6 @@ public class UserFileDAO implements UserDAO{
         }
     }
 
-    /**
-    ** {@inheritDoc}
-     */
     @Override
     public User[] findUsers(String containsText) {
         synchronized(users) {
@@ -113,9 +100,6 @@ public class UserFileDAO implements UserDAO{
         }
     }
 
-    /**
-    ** {@inheritDoc}
-     */
     @Override
     public User getUser(int id) {
         synchronized(users) {
@@ -126,9 +110,6 @@ public class UserFileDAO implements UserDAO{
         }
     }
 
-    /**
-    ** {@inheritDoc}
-     */
     @Override
     public User createUser(User user) throws IOException {
         synchronized(users) {
@@ -141,9 +122,6 @@ public class UserFileDAO implements UserDAO{
         }
     }
 
-    /**
-    ** {@inheritDoc}
-     */
     @Override
     public User updateUser(User user) throws IOException {
         synchronized(users) {
@@ -156,9 +134,6 @@ public class UserFileDAO implements UserDAO{
         }
     }
 
-    /**
-    ** {@inheritDoc}
-     */
     @Override
     public boolean deleteUser(int id) throws IOException {
         synchronized(users) {
@@ -171,3 +146,4 @@ public class UserFileDAO implements UserDAO{
         }
     }
 }
+*/
