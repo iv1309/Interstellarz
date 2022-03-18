@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Movie } from 'src/app/core/model/movies';
-import { MoviesService } from 'src/app/core/services/movies.service';
 import { CollectionsService } from 'src/app/core/services/collections.service';
 
 @Component({
@@ -13,11 +12,10 @@ import { CollectionsService } from 'src/app/core/services/collections.service';
 })
 export class CollectionComponent implements OnInit {
 
-  movies: Movie[] = [];
+  collections: Movie[] = [];
 
   constructor(
     private collectionService: CollectionsService,
-    private moviesService: MoviesService,
     private route: ActivatedRoute,
     private location: Location
     ) { }
@@ -34,21 +32,21 @@ export class CollectionComponent implements OnInit {
   getMoviesFromCollection(): void{
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.collectionService.getMoviesFromCollection(id)
-    .subscribe(movies => this.movies = movies);
+    .subscribe(movies => this.collections = movies);
   }
 
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.moviesService.addMovie({ name } as Movie)
+    this.collectionService.addMovieToCollection({ name } as Movie)
       .subscribe((movie: Movie) => {
-        this.movies.push(movie);
+        this.collections.push(movie);
       });
   }
 
   delete(movie: Movie): void {
-    this.movies = this.movies.filter(m => m !== movie);
-    this.moviesService.deleteMovie(movie.id).subscribe();
+    this.collections = this.collections.filter(m => m !== movie);
+    this.collectionService.deleteMovieFromCollection(movie.id).subscribe();
   }
 
   goBack(): void {
