@@ -8,6 +8,7 @@ import { MovieComponent } from './movie/movie.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CollectionsComponent } from './collections/collections.component';
+import { CollectionComponent } from './collection/collection.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CollectionsComponent } from './collections/collections.component';
     MovieComponent,
     MovieDetailsComponent,
     SearchMovieComponent,
-    CollectionsComponent
+    CollectionsComponent,
+    CollectionComponent
   ],
   imports: [
     CommonModule,
