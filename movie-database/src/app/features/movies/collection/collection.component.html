@@ -1,7 +1,7 @@
 <div id="collection-component">
     <h2>COLLECTION</h2>
     <ul class="movies">
-        <li *ngFor="let movie of collections">
+        <li *ngFor="let movie of collection">
           <a routerLink="/detail/{{movie.id}}">
             <span class="badge">{{movie.id}}</span> {{movie.name}}
       

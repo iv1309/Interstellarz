@@ -31,20 +31,19 @@ export class CollectionsComponent implements OnInit {
     .subscribe(collections => this.collections = collections);
   }
 
-  /**
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.collectionService.addCollection{ name } as Collection)
+    this.collectionService.addCollection({ name } as Collection)
       .subscribe((collection: Collection) => {
         this.collections.push(collection);
       });
   }
 
-  delete(movie: Movie): void {
-    this.movies = this.movies.filter(m => m !== movie);
-    this.moviesService.deleteMovie(movie.id).subscribe();
+  delete(collection: Collection): void {
+    this.collections = this.collections.filter(m => m !== collection);
+    this.collectionService.deleteCollection(collection.id).subscribe();
   }
-  */
+
 
 }

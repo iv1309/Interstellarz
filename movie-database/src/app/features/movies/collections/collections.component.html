@@ -3,5 +3,18 @@
       <a routerLink="/collection/{{collection.id}}">
         <span class="badge">{{collection.id}}</span> {{collection.name}}
       </a>
+
+        <button type="button" class="delete" title="delete collection"
+            (click)="delete(collection)">x</button>
     </li>
   </ul>
+
+  <div>
+    <label for="new-collection">Collection name: </label>
+    <input id="new-collection" #collectionName />
+  
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="add(collectionName.value); collectionName.value=''">
+      Add collection
+    </button>
+  </div>

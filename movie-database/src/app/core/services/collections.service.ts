@@ -42,21 +42,20 @@ export class CollectionsService {
     return of(movies);
   }
 
-  addMovieToCollection(movie: Movie): Observable<Movie> {
-    const url = `${this.collectionsUrl}/${movie}`;
-    return this.http.post<Movie>(this.collectionsUrl, movie, this.httpOptions).pipe(
-      catchError(this.handleError<Movie>('addMovie'))
-    );
-  }
-
-  /** DELETE: delete the hero from the server */
-  deleteMovieFromCollection(id: number): Observable<Movie> {
+  deleteCollection(id: number): Observable<Collection> {
     const url = `${this.collectionsUrl}/${id}`;
 
-    return this.http.delete<Movie>(url, this.httpOptions).pipe(
-      catchError(this.handleError<Movie>('deleteMovie'))
+    return this.http.delete<Collection>(url, this.httpOptions).pipe(
+      catchError(this.handleError<Collection>('deleteCollection'))
     );
   }
+
+  addCollection(collection: Collection): Observable<Collection> {
+    return this.http.post<Collection>(this.collectionsUrl, collection, this.httpOptions).pipe(
+      catchError(this.handleError<Collection>('addCollection'))
+    );
+  }
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

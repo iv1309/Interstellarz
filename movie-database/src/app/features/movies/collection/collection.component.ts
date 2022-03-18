@@ -12,7 +12,7 @@ import { CollectionsService } from 'src/app/core/services/collections.service';
 })
 export class CollectionComponent implements OnInit {
 
-  collections: Movie[] = [];
+  collection: Movie[] = [];
 
   constructor(
     private collectionService: CollectionsService,
@@ -32,21 +32,18 @@ export class CollectionComponent implements OnInit {
   getMoviesFromCollection(): void{
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.collectionService.getMoviesFromCollection(id)
-    .subscribe(movies => this.collections = movies);
+    .subscribe(movies => this.collection = movies);
   }
 
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.collectionService.addMovieToCollection({ name } as Movie)
-      .subscribe((movie: Movie) => {
-        this.collections.push(movie);
-      });
+    this.collection.push({ name } as Movie);
+    //search for movie
   }
 
   delete(movie: Movie): void {
-    this.collections = this.collections.filter(m => m !== movie);
-    this.collectionService.deleteMovieFromCollection(movie.id).subscribe();
+    this.collection.splice(movie.id,1);
   }
 
   goBack(): void {
