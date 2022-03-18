@@ -3,13 +3,17 @@ import { User } from '../model/users';
 import { USERS } from '../model/user-samples'; 
 import { Observable, of } from 'rxjs';
 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class UsersService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   getUsers(): Observable<User[]> {
     const users = of(USERS);

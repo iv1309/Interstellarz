@@ -12,6 +12,10 @@ import { MovieComponent } from './movies/movie/movie.component';
 import { UserComponent } from './users/user/user.component';
 import { MoviesModule } from './movies/movies.module';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from '../in-memory-data.service';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -23,7 +27,11 @@ import { MoviesModule } from './movies/movies.module';
     MoviesModule,
     FeaturesRoutingModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
 })
