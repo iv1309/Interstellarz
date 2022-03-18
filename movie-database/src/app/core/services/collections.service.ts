@@ -37,11 +37,9 @@ export class CollectionsService {
   }
 
   getMoviesFromCollection(id: number): Observable<Movie[]> {
-    const url = `${this.collectionsUrl}/${id}`;
-    
-    //const collection = COLLECTION.find(p => p.id === id)!;
-    //const movies = collection.array;
-    //return of(movies);
+    const collection = COLLECTION.find(p => p.id === id)!;
+    const movies = collection.array;
+    return of(movies);
   }
 
   addMovieToCollection(movie: Movie): Observable<Movie> {
