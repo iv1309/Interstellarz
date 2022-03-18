@@ -35,9 +35,9 @@ export class CollectionsComponent implements OnInit {
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.collectionService.addMovie({ name } as Movie)
-      .subscribe((movie: Movie) => {
-        this.movies.push(movie);
+    this.collectionService.addCollection{ name } as Collection)
+      .subscribe((collection: Collection) => {
+        this.collections.push(collection);
       });
   }
 

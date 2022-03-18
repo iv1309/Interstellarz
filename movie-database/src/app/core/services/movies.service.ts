@@ -11,7 +11,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class MoviesService {
 
-  private moviesUrl = 'http://localhost:8080/heroes';
+  private moviesUrl = 'http://localhost:8080/movies';
 
   constructor(
     private http: HttpClient

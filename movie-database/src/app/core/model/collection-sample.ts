@@ -4,7 +4,7 @@ import { Movie } from './movies';
 export const COL1: Movie[] = [
     { id: 1, name: 'The Batman' },
     { id: 2, name: 'Interstellar' },
-    { id: 3, name: 'Your Name' },
+    { id: 3, name: 'Your Name' }
   ];
   
 export const COL2: Movie[] = [
