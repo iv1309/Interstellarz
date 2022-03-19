@@ -45,18 +45,4 @@ export class CollectionsComponent implements OnInit {
     this.collectionService.deleteCollection(collection.id).subscribe();
   }
 
-  compare(a:Collection, b:Collection): number {
-    // Use toUpperCase() to ignore character casing
-  const collectionA = a.name.toUpperCase();
-  const collectionB = b.name.toUpperCase();
-
-  let comparison = 0;
-  if (collectionA > collectionB) {
-    comparison = 1;
-  } else if (collectionA < collectionB) {
-    comparison = -1;
-  }
-  return comparison;
-  }
-
 }

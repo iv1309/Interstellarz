@@ -18,6 +18,6 @@ export const COL2: Movie[] = [
   ];
 
 export const COLLECTION: Collection[] = [
-    { id: 1, name: 'Collection 1', array: COL1},
-    { id: 2, name: 'Collection 2', array: COL2}
+    { id: 1, name: 'Collection 1', array: COL1, size: 3},
+    { id: 2, name: 'Collection 2', array: COL2, size: 7}
 ];

@@ -21,4 +21,6 @@ public interface CollectionDAO {
 
     Movie[] getMoviesInCollection(int id) throws IOException;
 
+    public String getCollectionName(int id) throws IOException;
+
 }

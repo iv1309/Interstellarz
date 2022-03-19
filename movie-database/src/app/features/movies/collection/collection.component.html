@@ -1,26 +1,39 @@
-<div id="collection-component">
-    <h2>COLLECTION</h2>
-    <ul class="movies">
-        <li *ngFor="let movie of collection">
-          <a routerLink="/detail/{{movie.id}}">
-            <span class="badge">{{movie.id}}</span> {{movie.name}}
-      
-            <button type="button" class="delete" title="delete movie"
-            (click)="delete(movie)">x</button>
-          </a>
-        </li>
-      </ul>
-    </div>
-    
-    <div>
-        <label for="new-movie">Movie name: </label>
-        <input id="new-movie" #movieName />
-      
-        <!-- (click) passes input value to add() and then clears the input -->
-        <button type="button" class="add-button" (click)="add(movieName.value); movieName.value=''">
-          Add movie
-        </button>
-    </div>
+<div *ngIf="collection">
 
-    <button type="button" (click)="goBack()">go back</button>
-    
+  <h2>COLLECTION: {{collection.name | uppercase}}</h2>
+  <h3>Total Movies: {{collection.size}}</h3>
+  <div><span>id: </span>{{collection.id}}</div>
+  
+  <div>
+    <label for="collection-name">collection name: </label>
+    <input id="collection-name" [(ngModel)]="collection.name" placeholder="name">
+  </div>
+
+  <div>
+    <ul class="movies">
+      <li *ngFor="let movie of collection.array">
+        <a routerLink="/detail/{{movie.id}}">
+          <span class="badge">{{movie.id}}</span> {{movie.name}}
+        </a>
+
+        <button type="button" class="delete" title="delete movie"
+            (click)="delete(movie)">x</button>
+      </li>
+    </ul>
+  </div>
+
+  <button type="button" (click)="goBack()">go back</button>
+  <button type="button" (click)="save()">save</button>
+</div>
+
+<!--
+<div>
+  <label for="new-movie">Movie name: </label>
+  <input id="new-movie" #movieName />
+
+            
+  <button type="button" class="add-button" (click)="add(movieName.value); movieName.value=''">
+    Add movie
+  </button>
+</div>
+-->

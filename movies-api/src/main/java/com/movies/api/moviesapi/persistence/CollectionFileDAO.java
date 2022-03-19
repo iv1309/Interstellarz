@@ -137,7 +137,7 @@ public class CollectionFileDAO implements CollectionDAO{
         synchronized(collections) {
             // We create a new hero object because the id field is immutable
             // and we need to assign the next unique id
-            Collection newCollection = new Collection(nextId(),collection.getName(), collection.getMoviesInCollection());
+            Collection newCollection = new Collection(nextId(),collection.getName(), collection.getMoviesInCollection(), collection.getMoviesInCollection().length);
             collections.put(newCollection.getId(),newCollection);
             save(); // may throw an IOException
             return newCollection;
@@ -182,6 +182,19 @@ public class CollectionFileDAO implements CollectionDAO{
         synchronized(collections) {
             if (collections.containsKey(id))
                 return collections.get(id).getMoviesInCollection();
+            else
+                return null;
+        }
+    }
+
+    /**
+    ** {@inheritDoc}
+     */
+    @Override
+    public String getCollectionName(int id) throws IOException{
+        synchronized(collections) {
+            if (collections.containsKey(id))
+                return collections.get(id).getName();
             else
                 return null;
         }

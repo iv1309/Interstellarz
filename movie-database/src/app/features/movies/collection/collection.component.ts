@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { Movie } from 'src/app/core/model/movies';
 import { CollectionsService } from 'src/app/core/services/collections.service';
+import { Collection } from 'src/app/core/model/collection';
 
 @Component({
   selector: 'app-collection',
@@ -12,47 +13,55 @@ import { CollectionsService } from 'src/app/core/services/collections.service';
 })
 export class CollectionComponent implements OnInit {
 
-  collection: Movie[] = [];
+  collection: Collection | undefined;
+  //movies: Movie[] = [];
+  //name: String = " ";
 
   constructor(
-    private collectionService: CollectionsService,
     private route: ActivatedRoute,
+    private collectionService: CollectionsService,
     private location: Location
     ) { }
 
   ngOnInit(): void {
-    this.getMoviesFromCollection()
+    this.getCollection()
   }
 
-  onSelect(movie: Movie): void {
-    this.getMoviesFromCollection();
+  getCollection(){
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.collectionService.getCollection(id)
+      .subscribe(collection => this.collection = collection);
   }
 
   //TO DO
-  getMoviesFromCollection(): void{
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.collectionService.getMoviesFromCollection(id)
-    .subscribe(movies => this.collection = movies);
-  }
-
+ /**
   add(name: string): void {
     name = name.trim();
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (!name) { return; }
     this.collectionService.addMovieToCollection({ name } as Movie, id)
       .subscribe((movie: Movie) => {
-        this.collection.push({ name } as Movie);
+        this.collection?.array.push({ name } as Movie);
       });
     //search for movie
     //movies end up deleting themselves
   }
+  */
 
   delete(movie: Movie): void {
-    this.collection.splice(movie.id,1);
+    //this.collection?.array.splice(movie.id,1);
   }
+
 
   goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    if (this.collection) {
+      this.collectionService.updateCollection(this.collection)
+        .subscribe(() => this.goBack());
+    }
   }
 
 
