@@ -11,7 +11,7 @@ import { CollectionsService } from 'src/app/core/services/collections.service';
 })
 export class CollectionsComponent implements OnInit {
 
-  collections: Collection[] =[];
+  collections: Collection[] = [];
 
   constructor(
     private collectionService: CollectionsService
@@ -21,14 +21,14 @@ export class CollectionsComponent implements OnInit {
     this.getCollections()
   }
 
-  onSelect(movie: Movie): void {
+  onSelect(collection: Collection): void {
     this.getCollections();
   }
 
   //TO DO
   getCollections(): void{
     this.collectionService.getCollections()
-    .subscribe(collections => this.collections = collections);
+    .subscribe(collections => this.collections = collections.sort((a, b) => (a.name > b.name) ?1:-1));
   }
 
   add(name: string): void {
@@ -45,5 +45,18 @@ export class CollectionsComponent implements OnInit {
     this.collectionService.deleteCollection(collection.id).subscribe();
   }
 
+  compare(a:Collection, b:Collection): number {
+    // Use toUpperCase() to ignore character casing
+  const collectionA = a.name.toUpperCase();
+  const collectionB = b.name.toUpperCase();
+
+  let comparison = 0;
+  if (collectionA > collectionB) {
+    comparison = 1;
+  } else if (collectionA < collectionB) {
+    comparison = -1;
+  }
+  return comparison;
+  }
 
 }
