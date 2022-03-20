@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
-import { MoviesModule } from 'src/app/features/movies/movies.module';
 
 import { Collection } from '../model/collection';
 import { COLLECTION } from '../model/collection-sample';
@@ -40,9 +39,16 @@ export class CollectionsService {
   }
 
   getMoviesInCollection(id: number){
-    const collection = COLLECTION.find(p => p.id === id)!;
-    const movies = collection.array;
-    return of(movies);
+    const url = `${this.collectionsUrl}/${id}`;
+
+    return this.http.get<Movie[]>(url)
+    .pipe(
+      catchError(this.handleError<Movie[]>(`getMoviesInCollection id=${id}`))
+    );
+
+    //const collection = COLLECTION.find(p => p.id === id)!;
+    //const movies = collection.array;
+    //return of(movies);
   }
 
   deleteCollection(id: number): Observable<Collection> {
