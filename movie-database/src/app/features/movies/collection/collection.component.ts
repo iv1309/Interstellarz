@@ -66,7 +66,7 @@ export class CollectionComponent implements OnInit {
 
 
   delete(movie: Movie): void {
-    this.movies.splice(movie.id,1);
+    this.movies.splice(this.movies.indexOf(movie),1);
   }
 
 
