@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { Movie } from 'src/app/core/model/movies';
 import { CollectionsService } from 'src/app/core/services/collections.service';
 import { Collection } from 'src/app/core/model/collection';
+import { COLLECTION } from 'src/app/core/model/collection-sample';
 
 @Component({
   selector: 'app-collection',
@@ -14,7 +15,7 @@ import { Collection } from 'src/app/core/model/collection';
 export class CollectionComponent implements OnInit {
 
   collection: Collection | undefined;
-  //movies: Movie[] = [];
+  movies: Movie[] = [];
   //name: String = " ";
 
   constructor(
@@ -25,6 +26,7 @@ export class CollectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCollection()
+    this.getMoviesInCollection()
   }
 
   getCollection(){
@@ -33,9 +35,17 @@ export class CollectionComponent implements OnInit {
       .subscribe(collection => this.collection = collection);
   }
 
+  getMoviesInCollection(){
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.collectionService.getMoviesInCollection(id).subscribe(movies =>
+      this.movies = movies);
+  }
+
   //TO DO
- /**
   add(name: string): void {
+    this.movies.push({ name } as Movie);
+    /**
     name = name.trim();
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (!name) { return; }
@@ -45,11 +55,12 @@ export class CollectionComponent implements OnInit {
       });
     //search for movie
     //movies end up deleting themselves
+    */
   }
-  */
+
 
   delete(movie: Movie): void {
-    //this.collection?.array.splice(movie.id,1);
+    this.movies.splice(movie.id,1);
   }
 
 

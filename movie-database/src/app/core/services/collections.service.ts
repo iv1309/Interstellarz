@@ -1,9 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
+import { MoviesModule } from 'src/app/features/movies/movies.module';
 
-import { COLLECTION } from '../model/collection-sample';
 import { Collection } from '../model/collection';
+import { COLLECTION } from '../model/collection-sample';
 import { Movie } from '../model/movies';
 
 
@@ -38,27 +39,10 @@ export class CollectionsService {
     );
   }
 
-  getCollectionSize(id: number): Observable<number> {
-    const url = `${this.collectionsUrl}/${id}`;
-
-    return this.http.get<number>(url)
-    .pipe(
-      catchError(this.handleError<number>(`getCollectionSize id=${id}`))
-    );
-  }
-
-  getMoviesFromCollection(id: number): Observable<Movie[]> {
-    const url = `${this.collectionsUrl}/${id}`;
-    return this.http.get<Movie[]>(url)
-    .pipe(
-      catchError(this.handleError<Movie[]>('getMoviesFromCollection', []))
-    );
-  }
-
-  getCollectionName(id: number): Observable<String> {
+  getMoviesInCollection(id: number){
     const collection = COLLECTION.find(p => p.id === id)!;
-    const name = collection.name;
-    return of(name)
+    const movies = collection.array;
+    return of(movies);
   }
 
   deleteCollection(id: number): Observable<Collection> {
@@ -75,16 +59,20 @@ export class CollectionsService {
     );
   }
 
-  addMovieToCollection(movie: Movie, id: number): Observable<Movie> {
+  addMovieToCollection(movie: Movie, id: number): Observable<Collection> {
     const url = `${this.collectionsUrl}/${id}`;
 
-    return this.http.post<Movie>(url, movie, this.httpOptions).pipe(
-      catchError(this.handleError<Movie>('addMovieToCollection'))
+    return this.http.post<Collection>(url, movie, this.httpOptions).pipe(
+      catchError(this.handleError<Collection>('addMovieToCollection'))
     );
   }
 
-  deleteMovieFromCollection(id: number, movie: Movie) {
-    
+  deleteMovieFromCollection(id: number, movieId: number) {
+    const url = `${this.collectionsUrl}/${id}`;
+
+    return this.http.put(url, movieId, this.httpOptions).pipe(
+      catchError(this.handleError<any>(`deleteMovieFromCollection id=${id}`))
+    );
     /**
     const url = `${this.collectionsUrl}/${id}`;
 

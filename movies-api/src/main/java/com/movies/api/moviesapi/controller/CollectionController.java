@@ -85,6 +85,7 @@ public class CollectionController {
         }
     }
 
+
     @PostMapping("")
     public ResponseEntity<Collection> createCollection(@RequestBody Collection collection) {
         LOG.info("POST /collections " + collection);
@@ -102,25 +103,7 @@ public class CollectionController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    @PostMapping("/{id}")
-    public ResponseEntity<Collection> addMovieToCollection(@RequestBody Movie movie, int id) {
-        LOG.info("POST /collections/" + id);
-
-        // Replace below with your implementation
-        try{
-            Collection collection = collectionDao.getCollection(id);
-            movie = movieDao.createMovie(movie);
-            if(movie != null){
-                return new ResponseEntity<Collection>(collection,HttpStatus.CREATED);
-            } else {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-        } catch(Exception e) {
-            LOG.log(Level.SEVERE,e.getLocalizedMessage());
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+    
 
     @PutMapping("")
     public ResponseEntity<Collection> updateCollection(@RequestBody Collection collection) {
@@ -156,6 +139,5 @@ public class CollectionController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 
 }

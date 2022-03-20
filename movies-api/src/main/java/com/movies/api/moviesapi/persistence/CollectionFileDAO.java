@@ -191,10 +191,10 @@ public class CollectionFileDAO implements CollectionDAO{
     ** {@inheritDoc}
      */
     @Override
-    public String getCollectionName(int id) throws IOException{
+    public Movie[] deleteMovieInCollection(int id, Movie[] movies) throws IOException{
         synchronized(collections) {
             if (collections.containsKey(id))
-                return collections.get(id).getName();
+                return collections.get(id).setNewCollection(movies);
             else
                 return null;
         }

@@ -1,6 +1,7 @@
 package com.movies.api.moviesapi.model;
 
 import java.util.logging.Logger;
+import com.movies.api.moviesapi.model.Movie;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -32,6 +33,11 @@ public class Collection {
     public Number getCollectionSize() {return size;}
 
     public void setSize(Number size) {this.size = size;}
+
+    public Movie[] setNewCollection(Movie[] movies) {
+        this.array = movies;
+        return this.array;
+    }
 
     @Override
     public String toString() {
