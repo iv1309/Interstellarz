@@ -1,6 +1,7 @@
 package com.movies.api.moviesapi.persistence;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.movies.api.moviesapi.model.Movie;
 

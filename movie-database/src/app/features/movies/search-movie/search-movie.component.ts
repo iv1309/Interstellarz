@@ -11,6 +11,12 @@ import { MoviesService } from 'src/app/core/services/movies.service';
 })
 export class SearchMovieComponent implements OnInit {
 
+  movies: Movie[] = [];
+  filters = {
+    keyword: '',
+    filter: ''
+  }
+
   movies$!: Observable<Movie[]>;
   private searchTerms = new Subject<string>();
 

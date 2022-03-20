@@ -39,12 +39,7 @@ public class Collection {
     public Number getLength() {return length;} 
 
     public void setLength(Number length) {this.length = length;}
-
-    public Movie[] setNewCollection(Movie[] movies) {
-        this.array = movies;
-        return this.array;
-    }
-
+    
     @Override
     public String toString() {
         return String.format(STRING_FORMAT,id,name);

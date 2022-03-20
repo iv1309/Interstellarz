@@ -3,13 +3,18 @@ package com.movies.api.moviesapi.persistence;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 
+import javax.management.Query;
+import javax.websocket.Session;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.movies.api.moviesapi.model.Movie;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -32,6 +37,7 @@ public class MovieFileDAO implements MovieDAO{
                                         // to the file
     private static int nextId;  // The next Id to assign to a new hero
     private String filename;    // Filename to read from and write to
+
 
     public MovieFileDAO(@Value("${products.file}") String filename,ObjectMapper objectMapper) throws IOException {
         this.filename = filename;
