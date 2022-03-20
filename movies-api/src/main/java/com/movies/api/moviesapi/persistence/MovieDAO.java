@@ -8,7 +8,7 @@ public interface MovieDAO {
 
     Movie[] getMovies() throws IOException;
 
-    Movie[] findMovies(String containsText) throws IOException;
+    Movie[] searchMovies(String containsText) throws IOException;
 
     Movie getMovie(int id) throws IOException;
 

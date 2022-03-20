@@ -107,11 +107,12 @@ public class MovieFileDAO implements MovieDAO{
     ** {@inheritDoc}
      */
     @Override
-    public Movie[] findMovies(String containsText) {
+    public Movie[] searchMovies(String containsText) {
         synchronized(movies) {
             return getMoviesArray(containsText);
         }
     }
+
 
     /**
     ** {@inheritDoc}
@@ -134,7 +135,7 @@ public class MovieFileDAO implements MovieDAO{
         synchronized(movies) {
             // We create a new hero object because the id field is immutable
             // and we need to assign the next unique id
-            Movie newMovie = new Movie(nextId(),movie.getName());
+            Movie newMovie = new Movie(nextId(),movie.getName(), movie.getReleaseDate(), movie.getCastMembers(), movie.getStudio(), movie.getGenre(), 0, false);
             movies.put(newMovie.getId(),newMovie);
             save(); // may throw an IOException
             return newMovie;
@@ -170,4 +171,5 @@ public class MovieFileDAO implements MovieDAO{
                 return false;
         }
     }
+
 }

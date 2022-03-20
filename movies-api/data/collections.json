@@ -1,1 +1,12 @@
-[{"id":1,"name":"collection 1","array":[{"id":2,"name":"Interstellar"},{"id":3,"name":"Your Name"},{"id":4,"name":"Tangeled"},{"id":5,"name":"Harry Potter"}],"size":4,"collectionSize":4,"moviesInCollection":[{"id":2,"name":"Interstellar"},{"id":3,"name":"Your Name"},{"id":4,"name":"Tangeled"},{"id":5,"name":"Harry Potter"}]},{"id":2,"name":"collection 2","array":[{"id":10,"name":"The Joker"},{"id":11,"name":"the batman"},{"id":12,"name":"some movie"},{"id":13,"name":"test"}],"size":4,"collectionSize":4,"moviesInCollection":[{"id":10,"name":"The Joker"},{"id":11,"name":"the batman"},{"id":12,"name":"some movie"},{"id":13,"name":"test"}]}]
+[{"id":1,"name":"collection 1","array":
+    [{"id":3,"name":"Your Name", "releaseDate":"2018", "castMembers": "Tom Cruise", "studio": "mapa", "genre": "romance", "rate": 0, "watched": false},
+        {"id":4,"name":"Tangeled", "releaseDate":"2016", "castMembers": "Jenifer Lopez", "studio": "disney", "genre": "action", "rate": 0, "watched": false},
+        {"id":5,"name":"Harry Potter", "releaseDate":"1996", "castMembers": "Daniel Radcliff", "studio": "warner brothers", "genre": "magic", "rate": 0, "watched": false},
+        {"id":6,"name":"Die Hard", "releaseDate":"1987", "castMembers": "Bruce Willis", "studio": "warner brothers", "genre": "action", "rate": 0, "watched": false},
+        {"id":7,"name":"The 5th Element", "releaseDate":"1988", "castMembers": "Bruce Willis", "studio": "ghbili", "genre": "action", "rate": 0, "watched": false}]
+    ,"size":5},
+{"id":2,"name":"collection 2",
+    "array":
+    [{"id":10,"name":"The Joker", "releaseDate":"2018", "castMembers": "Heath Ledger", "studio": "warner brothers", "genre": "horror", "rate": 0, "watched": false},
+        {"id":11,"name":"the batman", "releaseDate":"2022", "castMembers": "Robert Patterson", "studio": "warner brothers", "genre": "action", "rate": 0, "watched": false}],
+    "size":2}]

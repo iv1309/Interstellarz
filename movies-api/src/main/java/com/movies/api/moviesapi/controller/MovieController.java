@@ -70,7 +70,7 @@ public class MovieController {
 
         // Replace below with your implementation
         try{
-            Movie movie[] = movieDao.findMovies(name);
+            Movie movie[] = movieDao.searchMovies(name);
             if(movie != null){
                 return new ResponseEntity<Movie[]>(movie,HttpStatus.OK);
             } else {
