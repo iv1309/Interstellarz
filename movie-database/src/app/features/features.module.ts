@@ -17,10 +17,10 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from '../in-memory-data.service';
 import { CoreModule } from '../core/core.module';
 
+
 @NgModule({
   declarations: [
     HomeComponent,
-    LoginComponent,
     UserComponent
   ],
   imports: [
