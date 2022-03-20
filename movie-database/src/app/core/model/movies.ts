@@ -1,3 +1,4 @@
+
 export interface Movie {
     id: number;
     name: string;
@@ -5,4 +6,6 @@ export interface Movie {
     castMembers: string;
     studio: string;
     genre: string;
+    rate: number;
+    watched: boolean;
 }

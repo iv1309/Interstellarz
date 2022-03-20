@@ -1,7 +1,7 @@
 import { Movie } from './movies';
 
 export const MOVIES: Movie[] = [
-  { id: 1, name: 'The Batman', releaseDate:"2022", castMembers: "Robert Patterson", studio: "warner brothers", genre: "action"}
+  { id: 1, name: 'The Batman', releaseDate:"2022", castMembers: "Robert Patterson", studio: "warner brothers", genre: "action", rate: 0, watched: false}
 ];
 
 /**
