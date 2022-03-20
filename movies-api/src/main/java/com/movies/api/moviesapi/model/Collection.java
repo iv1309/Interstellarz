@@ -14,12 +14,14 @@ public class Collection {
     @JsonProperty("name") private String name;
     @JsonProperty("array") private Movie[] array;
     @JsonProperty("size") private Number size;
+    @JsonProperty("length") private Number length;
 
-    public Collection(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("array") Movie[] array, @JsonProperty("size") Number size) {
+    public Collection(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("array") Movie[] array, @JsonProperty("size") Number size, @JsonProperty("length") Number length) {
         this.id = id;
         this.name = name;
         this.array = array;
         this.size = size;
+        this.length = length;
     }
 
     public int getId() {return id;}
@@ -33,6 +35,10 @@ public class Collection {
     public Number getCollectionSize() {return size;}
 
     public void setSize(Number size) {this.size = size;}
+
+    public Number getLength() {return length;} 
+
+    public void setLength(Number length) {this.length = length;}
 
     public Movie[] setNewCollection(Movie[] movies) {
         this.array = movies;

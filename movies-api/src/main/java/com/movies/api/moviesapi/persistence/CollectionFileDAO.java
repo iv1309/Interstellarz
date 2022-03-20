@@ -143,7 +143,7 @@ public class CollectionFileDAO implements CollectionDAO{
             if(movies != null){
                 size = movies.length;
             }
-            Collection newCollection = new Collection(nextId(),collection.getName(), movies, size);
+            Collection newCollection = new Collection(nextId(),collection.getName(), movies, size, collection.getLength());
             collections.put(newCollection.getId(),newCollection);
             save(); // may throw an IOException
             return newCollection;

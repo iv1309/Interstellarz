@@ -16,6 +16,7 @@ export class CollectionComponent implements OnInit {
 
   collection: Collection | undefined;
   movies: Movie[] = [];
+  length: number = 0;
   //name: String = " ";
 
   constructor(
@@ -56,6 +57,13 @@ export class CollectionComponent implements OnInit {
     //search for movie
     //movies end up deleting themselves
     */
+  }
+
+  getTotalLength(){
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.collectionService.getTotalLength(id).subscribe(length =>
+      this.length = length);
   }
 
 

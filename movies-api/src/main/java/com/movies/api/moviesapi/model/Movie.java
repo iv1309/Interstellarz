@@ -17,9 +17,10 @@ public class Movie {
     @JsonProperty("genre") private String genre;
     @JsonProperty("rate") private int rate;
     @JsonProperty("watched") private Boolean watched;
+    @JsonProperty("length") private int length;
 
     public Movie(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("releaseDate") String releaseDate, @JsonProperty("castMembers") String castMembers, @JsonProperty("studio") String studio, @JsonProperty("genre") String genre, @JsonProperty("rate") int rate,
-    @JsonProperty("watched") Boolean watched) {
+    @JsonProperty("watched") Boolean watched, @JsonProperty("length") int length) {
         this.id = id;
         this.name = name;
         this.releaseDate = releaseDate;
@@ -28,6 +29,7 @@ public class Movie {
         this.genre = genre;
         this.rate = rate;
         this.watched  = watched;
+        this.length = length;
     }
 
     public int getId() {return id;}
@@ -47,6 +49,8 @@ public class Movie {
     public int getRate() {return rate;}
 
     public Boolean getWatched() {return watched;}
+
+    public int getLength() {return length;}
 
     @Override
     public String toString() {

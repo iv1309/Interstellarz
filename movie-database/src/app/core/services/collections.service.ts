@@ -51,6 +51,15 @@ export class CollectionsService {
     //return of(movies);
   }
 
+  getTotalLength(id: number){
+    const url = `${this.collectionsUrl}/${id}`;
+
+    return this.http.get<number>(url)
+    .pipe(
+      catchError(this.handleError<number>(`getTotalLength id=${id}`))
+    );
+  }
+
   deleteCollection(id: number): Observable<Collection> {
     const url = `${this.collectionsUrl}/${id}`;
 

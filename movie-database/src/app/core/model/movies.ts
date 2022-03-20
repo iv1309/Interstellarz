@@ -8,4 +8,5 @@ export interface Movie {
     genre: string;
     rate: number;
     watched: boolean;
+    length: number;
 }

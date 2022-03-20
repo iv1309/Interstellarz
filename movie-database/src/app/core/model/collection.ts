@@ -5,4 +5,5 @@ export interface Collection {
     name: string;
     array: Movie[];
     size: number;
+    length: number;
 }

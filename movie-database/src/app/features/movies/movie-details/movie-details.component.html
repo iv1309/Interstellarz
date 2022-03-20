@@ -18,6 +18,7 @@
       <label for="movie-name">Movie name: </label>
       <input id="movie-name" [(ngModel)]="movie.name" placeholder="name">
     </div>
+    <div><span>length: </span>{{movie.length}}</div>
     <button type="button" (click)="goBack()">go back</button>
     <button type="button" (click)="save()">save</button>
   </div>
