@@ -2,6 +2,7 @@ package com.movies.api.moviesapi.persistence;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -137,7 +138,12 @@ public class CollectionFileDAO implements CollectionDAO{
         synchronized(collections) {
             // We create a new hero object because the id field is immutable
             // and we need to assign the next unique id
-            Collection newCollection = new Collection(nextId(),collection.getName(), collection.getMoviesInCollection(), collection.getMoviesInCollection().length);
+            Movie[] movies = collection.getMoviesInCollection();
+            int size = 0;
+            if(movies != null){
+                size = movies.length;
+            }
+            Collection newCollection = new Collection(nextId(),collection.getName(), movies, size);
             collections.put(newCollection.getId(),newCollection);
             save(); // may throw an IOException
             return newCollection;
