@@ -15,6 +15,7 @@ import { MoviesModule } from './movies/movies.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from '../in-memory-data.service';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { InMemoryDataService } from '../in-memory-data.service';
   imports: [
     CommonModule,
     MoviesModule,
+    CoreModule,
     FeaturesRoutingModule,
     RouterModule,
     FormsModule,

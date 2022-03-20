@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 
 import { HeaderComponent } from './header/header.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   imports: [
@@ -15,8 +16,9 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    DashboardComponent
   ],
-  declarations: [HeaderComponent]
+  declarations: [HeaderComponent, DashboardComponent]
 })
 export class CoreModule { }
