@@ -2,6 +2,10 @@
 
     <h2>MOVIE: {{movie.name | uppercase}}</h2>
     <div><span>id: </span>{{movie.id}}</div>
+    <div><span>release date: </span>{{movie.releaseDate}}</div>
+    <div><span>cast members: </span>{{movie.castMembers}}</div>
+    <div><span>studio: </span>{{movie.studio}}</div>
+    <div><span>genre: </span>{{movie.genre}}</div>
     <div>
       <label for="movie-name">Movie name: </label>
       <input id="movie-name" [(ngModel)]="movie.name" placeholder="name">

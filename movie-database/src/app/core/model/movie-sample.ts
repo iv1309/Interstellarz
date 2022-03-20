@@ -1,7 +1,11 @@
 import { Movie } from './movies';
 
 export const MOVIES: Movie[] = [
-  { id: 1, name: 'The Batman' },
+  { id: 1, name: 'The Batman', releaseDate:"2022", castMembers: "Robert Patterson", studio: "warner brothers", genre: "action"}
+];
+
+/**
+ *   
   { id: 2, name: 'Interstellar' },
   { id: 3, name: 'Your Name' },
   { id: 4, name: 'Tangeled' },
@@ -11,4 +15,4 @@ export const MOVIES: Movie[] = [
   { id: 8, name: 'The Sixth Sense' },
   { id: 9, name: 'Alien' },
   { id: 10, name: 'The Joker' }
-];
+ */
