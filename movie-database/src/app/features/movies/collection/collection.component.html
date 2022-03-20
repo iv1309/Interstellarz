@@ -11,16 +11,39 @@
   </div>
 
   <div>
-    <ul class="movies">
-      <li *ngFor="let movie of movies">
-        <a routerLink="/detail/{{movie.id}}">
-          <span class="badge">{{movie.id}}</span> {{movie.name}}
-        </a>
-
-        <button type="button" class="delete" title="delete movie"
-            (click)="delete(movie)">x</button>
-      </li>
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Release Date</th>
+          <th>Cast Members</th>
+          <th>Genre</th>
+          <th>Studio</th>
+          <th>Go to movie</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of collection.array">
+          <td>{{ movie.id }}</td>
+          <td>{{ movie.name }}</td>
+          <td>{{ movie.releaseDate }}</td>
+          <td>{{ movie.castMembers }}</td>
+          <td>{{ movie.genre }}</td>
+          <td>{{ movie.studio }}</td>
+          <td>
+            <a routerLink="/detail/{{movie.id}}">
+              <button type="button"> Movie </button>
+            </a>
+          </td>
+          <td>
+            <button type="button" class="delete" title="delete movie"
+            (click)="delete(movie)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <div>
