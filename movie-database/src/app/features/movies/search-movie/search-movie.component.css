@@ -46,13 +46,21 @@ label {
     padding-left: 0;
   }
 
-  .select2 > .select2-choice.ui-select-match {
-    /* Because of the inclusion of Bootstrap */
-    height: 29px;
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
   }
 
-  .selectize-control > .selectize-dropdown {
-    top: 36px;
-  }
 
   

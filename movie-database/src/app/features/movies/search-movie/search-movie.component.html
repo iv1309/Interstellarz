@@ -7,7 +7,13 @@
     <ul class="search-result">
       <li *ngFor="let movie of movies$ | async" >
         <a routerLink="/detail/{{movie.id}}">
-          {{movie.name}}: {{movie.releaseDate}}: {{movie.castMembers}}: {{movie.studio}}: {{movie.genre}}
+          <table>
+            <td>{{movie.name}}</td>
+            <td>{{movie.releaseDate}}</td>
+            <td>{{movie.castMembers}}</td>
+            <td>{{movie.studio}}</td>
+            <td>{{movie.genre}}</td>
+        </table>
         </a>
       </li>
     </ul>
