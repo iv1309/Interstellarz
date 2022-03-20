@@ -1,15 +1,74 @@
 <h2>LIST OF MOVIES</h2>
+
+<app-filter-movies></app-filter-movies>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Release Date</th>
+        <th>Cast Members</th>
+        <th>Genre</th>
+        <th>Studio</th>
+        <th>Go to movie</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies">
+        <td>{{ movie.id }}</td>
+        <td>{{ movie.name }}</td>
+        <td>{{ movie.releaseDate }}</td>
+        <td>{{ movie.castMembers }}</td>
+        <td>{{ movie.genre }}</td>
+        <td>{{ movie.studio }}</td>
+        <td>
+          <a routerLink="/detail/{{movie.id}}">
+            <button type="button"> Movie </button>
+          </a>
+        </td>
+        <td>
+          <button type="button" class="delete" title="delete movie"
+          (click)="delete(movie)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--
 <ul class="movies">
-  <li *ngFor="let movie of movies">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Release Date</th>
+      <th>Cast Members</th>
+      <th>Genre</th>
+      <th>Studio</th>
+      <th>Remove</th>
+    </tr>
+
+  <tr *ngFor="let movie of movies">
     <a routerLink="/detail/{{movie.id}}">
       <span class="badge">
-        {{movie.id}} </span> 
-        {{movie.name}}: {{movie.releaseDate}}: {{movie.castMembers}}: {{movie.studio}}: {{movie.genre}}
+        <td>{{movie.id}} </td>
+      </span> 
+        <td>{{movie.name}}</td>
+        <td>{{movie.releaseDate}}</td>
+        <td>{{movie.castMembers}}</td>
+        <td>{{movie.genre}}</td>
+        <td>{{movie.studio}}</td>
     </a>
-    <button type="button" class="delete" title="delete movie"
-      (click)="delete(movie)">x</button>
-  </li>
+    <td><button type="button" class="delete" title="delete movie"
+      (click)="delete(movie)">x</button></td>
+  </tr>
+</table>
 </ul>
+
+-->
 
 <div>
   <label for="new-movie">Movie name: </label>
@@ -33,5 +92,4 @@
     <button type="button" class="genre-button" (click)="getMoviesByGenre()">
       Genre</button>
 </div>
-
 

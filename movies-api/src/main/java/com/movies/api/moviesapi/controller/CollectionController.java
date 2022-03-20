@@ -85,8 +85,6 @@ public class CollectionController {
         }
     }
 
-
-
     @PostMapping("")
     public ResponseEntity<Collection> createCollection(@RequestBody Collection collection) {
         LOG.info("POST /collections " + collection);

@@ -38,19 +38,6 @@ export class CollectionsService {
     );
   }
 
-  getMoviesInCollection(id: number){
-    const url = `${this.collectionsUrl}/${id}`;
-
-    return this.http.get<Movie[]>(url)
-    .pipe(
-      catchError(this.handleError<Movie[]>(`getMoviesInCollection id=${id}`))
-    );
-
-    //const collection = COLLECTION.find(p => p.id === id)!;
-    //const movies = collection.array;
-    //return of(movies);
-  }
-
   getTotalLength(id: number){
     const url = `${this.collectionsUrl}/${id}`;
 
@@ -72,29 +59,6 @@ export class CollectionsService {
     return this.http.post<Collection>(this.collectionsUrl, collection, this.httpOptions).pipe(
       catchError(this.handleError<Collection>('addCollection'))
     );
-  }
-
-  addMovieToCollection(movie: Movie, id: number): Observable<Collection> {
-    const url = `${this.collectionsUrl}/${id}`;
-
-    return this.http.post<Collection>(url, movie, this.httpOptions).pipe(
-      catchError(this.handleError<Collection>('addMovieToCollection'))
-    );
-  }
-
-  deleteMovieFromCollection(id: number, movieId: number) {
-    const url = `${this.collectionsUrl}/${id}`;
-
-    return this.http.put(url, movieId, this.httpOptions).pipe(
-      catchError(this.handleError<any>(`deleteMovieFromCollection id=${id}`))
-    );
-    /**
-    const url = `${this.collectionsUrl}/${id}`;
-
-    return this.http.post<Collection>(url, movie, this.httpOptions).pipe(
-      catchError(this.handleError<Collection>('deleteMovieFromCollection id=${id}'))
-    );
-    */
   }
 
   updateCollection(collection: Collection) {

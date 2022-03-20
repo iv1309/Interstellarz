@@ -12,7 +12,7 @@
 
   <div>
     <ul class="movies">
-      <li *ngFor="let movie of collection.array">
+      <li *ngFor="let movie of movies">
         <a routerLink="/detail/{{movie.id}}">
           <span class="badge">{{movie.id}}</span> {{movie.name}}
         </a>
@@ -23,18 +23,17 @@
     </ul>
   </div>
 
+  <div>
+    <label for="new-movie">Movie name: </label>
+    <input id="new-movie" #movieName />
+  
+              
+    <button type="button" class="add-button" (click)="add(movieName.value); movieName.value=''">
+      Add movie
+    </button>
+  </div>
+  
+
   <button type="button" (click)="goBack()">go back</button>
   <button type="button" (click)="save()">save</button>
 </div>
-
-
-<div>
-  <label for="new-movie">Movie name: </label>
-  <input id="new-movie" #movieName />
-
-            
-  <button type="button" class="add-button" (click)="add(movieName.value); movieName.value=''">
-    Add movie
-  </button>
-</div>
-
