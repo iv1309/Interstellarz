@@ -5,6 +5,8 @@
         <tr>
           <th>ID</th>
           <th>Title</th>
+          <th>Number of Movies</th>
+          <th>Total Watch Time</th>
           <th>Go to collection</th>
           <th>Remove</th>
         </tr>
@@ -13,6 +15,8 @@
         <tr *ngFor="let collection of collections">
           <td>{{ collection.id }}</td>
           <td>{{ collection.name }}</td>
+          <td>{{ collection.size }}</td>
+          <td>{{ collection.length }}</td>
           <td>
             <a routerLink="/collections/{{collection.id}}">
               <button type="button"> Collection </button>
