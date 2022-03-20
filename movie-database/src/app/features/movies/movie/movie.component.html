@@ -2,7 +2,9 @@
 <ul class="movies">
   <li *ngFor="let movie of movies">
     <a routerLink="/detail/{{movie.id}}">
-      <span class="badge">{{movie.id}}</span> {{movie.name}}
+      <span class="badge">
+        {{movie.id}} </span> 
+        {{movie.name}}: {{movie.releaseDate}}: {{movie.castMembers}}: {{movie.studio}}: {{movie.genre}}
     </a>
     <button type="button" class="delete" title="delete movie"
       (click)="delete(movie)">x</button>
@@ -17,6 +19,19 @@
   <button type="button" class="add-button" (click)="add(movieName.value); movieName.value=''">
     Add movie
   </button>
+</div>
+
+<div>
+  <button type="button" class="title-button" (click)="getMoviesByName()"> 
+    Title</button>
+    <button type="button" class="release-date-button" (click)="getMoviesByReleaseDate()"> 
+      Release Year</button>
+    <button type="button" class="cast-members-button" (click)="getMoviesByCastMembers()"> 
+      Cast Members</button>
+    <button type="button" class="studio-button" (click)="getMoviesByStudio()"> 
+      Studio</button>
+    <button type="button" class="genre-button" (click)="getMoviesByGenre()">
+      Genre</button>
 </div>
 
 

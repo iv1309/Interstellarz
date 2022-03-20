@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { Observable, Subject, debounceTime, distinctUntilChanged, switchMap, map } from 'rxjs';
 
 import { Movie } from 'src/app/core/model/movies';
 import { MoviesService } from 'src/app/core/services/movies.service';
@@ -30,7 +30,8 @@ export class SearchMovieComponent implements OnInit {
       distinctUntilChanged(),
 
       // switch to new search observable each time the term changes
-      switchMap((term: string) => this.movieService.searchMovies(term)),
-    );
+      switchMap((term: string) => this.movieService.searchMovies(term)), 
+      
+      )
   }
 }

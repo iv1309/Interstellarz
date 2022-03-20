@@ -15,16 +15,36 @@ export class MovieComponent implements OnInit {
   constructor (private moviesService: MoviesService) { }
 
   ngOnInit(): void {
-    this.getMovies();
+    this.getMoviesByName();
   }
 
   onSelect(movie: Movie): void {
-    this.getMovies();
+    this.getMoviesByName();
   }
 
-  getMovies(): void {
+  getMoviesByName(): void {
     this.moviesService.getMovies()
-    .subscribe(movies => this.movies = movies);
+    .subscribe(movies => this.movies = movies.sort((a, b) => (a.name > b.name) ?1:-1));
+  }
+
+  getMoviesByReleaseDate(): void {
+    this.moviesService.getMovies()
+    .subscribe(movies => this.movies = movies.sort((a, b) => (a.releaseDate > b.releaseDate) ?1:-1));
+  }
+
+  getMoviesByCastMembers(): void {
+    this.moviesService.getMovies()
+    .subscribe(movies => this.movies = movies.sort((a, b) => (a.castMembers > b.castMembers) ?1:-1));
+  }
+
+  getMoviesByGenre(): void {
+    this.moviesService.getMovies()
+    .subscribe(movies => this.movies = movies.sort((a, b) => (a.genre > b.genre) ?1:-1));
+  }
+
+  getMoviesByStudio(): void {
+    this.moviesService.getMovies()
+    .subscribe(movies => this.movies = movies.sort((a, b) => (a.studio > b.studio) ?1:-1));
   }
 
   add(name: string): void {
