@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable, Subject, debounceTime, distinctUntilChanged, switchMap, map } from 'rxjs';
 
 import { Movie } from 'src/app/core/model/movies';

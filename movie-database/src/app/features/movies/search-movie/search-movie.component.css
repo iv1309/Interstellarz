@@ -1,4 +1,4 @@
-/* HeroSearch private styles */
+/* HeroSearch private styles*/
 
 label {
     display: block;
@@ -45,3 +45,22 @@ label {
     margin-top: 0;
     padding-left: 0;
   }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+
+  

@@ -1,13 +1,34 @@
-<ul class="collections">
-    <li *ngFor="let collection of collections">
-      <a routerLink="/collections/{{collection.id}}">
-        <span class="badge">{{collection.id}}</span> {{collection.name}}
-      </a>
 
-        <button type="button" class="delete" title="delete collection"
-            (click)="delete(collection)">x</button>
-    </li>
-  </ul>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Number of Movies</th>
+          <th>Total Watch Time</th>
+          <th>Go to collection</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let collection of collections">
+          <td>{{ collection.id }}</td>
+          <td>{{ collection.name }}</td>
+          <td>{{ collection.size }}</td>
+          <td>{{ collection.length }}</td>
+          <td>
+            <a routerLink="/collections/{{collection.id}}">
+              <button type="button"> Collection </button>
+            </a>
+          </td>
+          <td>
+            <button type="button" class="delete" title="delete collection"
+            (click)="delete(collection)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
   <div>
     <label for="new-collection">Collection name: </label>

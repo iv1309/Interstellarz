@@ -12,6 +12,10 @@ export class MovieComponent implements OnInit {
 
   movies: Movie[] =[];
 
+  filters = {
+    keyword: ''
+  }
+
   constructor (private moviesService: MoviesService) { }
 
   ngOnInit(): void {
@@ -24,27 +28,39 @@ export class MovieComponent implements OnInit {
 
   getMoviesByName(): void {
     this.moviesService.getMovies()
-    .subscribe(movies => this.movies = movies.sort((a, b) => (a.name > b.name) ?1:-1));
+    .subscribe(movies => this.movies = this.filterMovies(movies.sort((a, b) => (a.name > b.name) ?1:-1)));
   }
 
   getMoviesByReleaseDate(): void {
     this.moviesService.getMovies()
-    .subscribe(movies => this.movies = movies.sort((a, b) => (a.releaseDate > b.releaseDate) ?1:-1));
+    .subscribe(movies => this.movies = this.filterMovies(movies.sort((a, b) => (a.releaseDate > b.releaseDate) ?1:-1)));
   }
 
   getMoviesByCastMembers(): void {
     this.moviesService.getMovies()
-    .subscribe(movies => this.movies = movies.sort((a, b) => (a.castMembers > b.castMembers) ?1:-1));
+    .subscribe(movies => this.movies = this.filterMovies(movies.sort((a, b) => (a.castMembers > b.castMembers) ?1:-1)));
   }
 
   getMoviesByGenre(): void {
     this.moviesService.getMovies()
-    .subscribe(movies => this.movies = movies.sort((a, b) => (a.genre > b.genre) ?1:-1));
+    .subscribe(movies => this.movies = this.filterMovies(movies.sort((a, b) => (a.genre > b.genre) ?1:-1)));
   }
 
   getMoviesByStudio(): void {
     this.moviesService.getMovies()
-    .subscribe(movies => this.movies = movies.sort((a, b) => (a.studio > b.studio) ?1:-1));
+    .subscribe(movies => this.movies = this.filterMovies(movies.sort((a, b) => (a.studio > b.studio) ?1:-1)));
+  }
+
+  listMovies() {
+    this.moviesService.getMovies().subscribe(
+      data => this.movies = this.filterMovies(data)
+    )
+  }
+
+  filterMovies(movies: Movie[]) {
+    return movies.filter((e) => {
+      return e.name.toLowerCase().includes(this.filters.keyword.toLowerCase());
+    })
   }
 
   add(name: string): void {

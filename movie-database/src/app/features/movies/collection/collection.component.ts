@@ -27,20 +27,18 @@ export class CollectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCollection()
-    this.getMoviesInCollection()
   }
 
   getCollection(){
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.collectionService.getCollection(id)
-      .subscribe(collection => this.collection = collection);
+      .subscribe(collection => this.getMoviesInCollection(collection));
   }
 
-  getMoviesInCollection(){
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-
-    this.collectionService.getMoviesInCollection(id).subscribe(movies =>
-      this.movies = movies);
+  getMoviesInCollection(collection: Collection){
+    this.collection = collection;
+    this.movies = collection.array;
+    this.length = collection.length;
   }
 
   //TO DO

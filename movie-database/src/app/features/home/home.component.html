@@ -1,8 +1,10 @@
 <h2>Movies Library</h2>
 <div class="movies-top-ten">
-    <a *ngFor="let movie of movies"
+    <a *ngFor="let movie of movies"> <button
       routerLink="/detail/{{movie.id}}">
       {{movie.name}}
+      </button>
+      <span>&nbsp;</span>
     </a>
   </div>
   <app-search-movie></app-search-movie>

@@ -1,21 +1,55 @@
-<h2>LIST OF MOVIES</h2>
-<ul class="movies">
-  <li *ngFor="let movie of movies">
-    <a routerLink="/detail/{{movie.id}}">
-      <span class="badge">
-        {{movie.id}} </span> 
-        {{movie.name}}: {{movie.releaseDate}}: {{movie.castMembers}}: {{movie.studio}}: {{movie.genre}}
-    </a>
-    <button type="button" class="delete" title="delete movie"
-      (click)="delete(movie)">x</button>
-  </li>
-</ul>
+
+<div class="row">
+  <div class="col-md-4">
+      <input type="text"
+          [(ngModel)]="filters.keyword"
+          name="keyword"
+          (input)="listMovies()" 
+          class="form-control"
+          placeholder="Filter Movies"/>
+  </div>
+</div>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Release Date</th>
+        <th>Cast Members</th>
+        <th>Genre</th>
+        <th>Studio</th>
+        <th>Go to movie</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies">
+        <td>{{ movie.id }}</td>
+        <td>{{ movie.name }}</td>
+        <td>{{ movie.releaseDate }}</td>
+        <td>{{ movie.castMembers }}</td>
+        <td>{{ movie.genre }}</td>
+        <td>{{ movie.studio }}</td>
+        <td>
+          <a routerLink="/detail/{{movie.id}}">
+            <button type="button"> Movie </button>
+          </a>
+        </td>
+        <td>
+          <button type="button" class="delete" title="delete movie"
+          (click)="delete(movie)">Delete</button>
+        </td>
+      </tr>
+</tbody>
+</table>
+</div>
 
 <div>
   <label for="new-movie">Movie name: </label>
   <input id="new-movie" #movieName />
 
-  <!-- (click) passes input value to add() and then clears the input -->
   <button type="button" class="add-button" (click)="add(movieName.value); movieName.value=''">
     Add movie
   </button>
@@ -33,5 +67,4 @@
     <button type="button" class="genre-button" (click)="getMoviesByGenre()">
       Genre</button>
 </div>
-
 

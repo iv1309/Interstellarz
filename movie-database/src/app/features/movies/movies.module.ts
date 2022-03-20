@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { CollectionsComponent } from './collections/collections.component';
 import { CollectionComponent } from './collection/collection.component';
 
-
 @NgModule({
   declarations: [
     MovieComponent,
