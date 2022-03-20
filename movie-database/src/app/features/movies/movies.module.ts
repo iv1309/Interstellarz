@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CollectionsComponent } from './collections/collections.component';
 import { CollectionComponent } from './collection/collection.component';
+import { FilterMoviesComponent } from './filter-movies/filter-movies.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CollectionComponent } from './collection/collection.component';
     MovieDetailsComponent,
     SearchMovieComponent,
     CollectionsComponent,
-    CollectionComponent
+    CollectionComponent,
+    FilterMoviesComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { CollectionComponent } from './collection/collection.component';
   ],
   exports: [
     SearchMovieComponent,
-    CollectionsComponent
+    CollectionsComponent,
+    FilterMoviesComponent
   ]
 })
 export class MoviesModule { }

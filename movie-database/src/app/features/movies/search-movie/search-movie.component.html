@@ -3,18 +3,18 @@
   <div>
     <label for="search-box">Search Title</label>
     <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-    
+
     <ul class="search-result">
       <li *ngFor="let movie of movies$ | async" >
         <a routerLink="/detail/{{movie.id}}">
-          {{movie.name}}: {{movie.releaseDate}}: {{movie.castMembers}}: {{movie.studio}}: {{movie.genre}}
+          {{movie.name}}
+          <small>
+            {{movie.releaseDate}}: {{movie.castMembers}}: {{movie.studio}}: {{movie.genre}}
+          </small> 
         </a>
       </li>
     </ul>
-    <button>Title</button>
-    <button>Release Year</button>
-    <button>Cast Members</button>
-    <button>Studio</button>
-    <button>Genre</button>
-    </div>
+
 </div>
+
+    
