@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'register',   component: RegisterComponent   },
   { path: 'detail/:id', component: MovieDetailsComponent },
   { path: 'user', component: UserComponent },
-  { path: 'collections/:id', component: CollectionComponent }
+  { path: 'collections/:id', component: CollectionComponent },
+  
 ];
  
 @NgModule({
