@@ -1,6 +1,4 @@
-
-/**
- package com.movies.api.moviesapi.model;
+package com.movies.api.moviesapi.model;
 
 import java.util.logging.Logger;
 
@@ -13,6 +11,7 @@ public class User {
 
     @JsonProperty("id") private int id;
     @JsonProperty("name") private String name;
+    @JsonProperty("collections") private Collection[] collections;
 
     public User(@JsonProperty("id") int id, @JsonProperty("name") String name) {
         this.id = id;
@@ -30,4 +29,3 @@ public class User {
         return String.format(STRING_FORMAT,id,name);
     }
 }
-*/

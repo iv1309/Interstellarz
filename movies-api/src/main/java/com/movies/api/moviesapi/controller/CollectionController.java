@@ -17,7 +17,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.movies.api.moviesapi.model.Collection;
-import com.movies.api.moviesapi.model.Movie;
 import com.movies.api.moviesapi.persistence.CollectionDAO;
 import com.movies.api.moviesapi.persistence.MovieDAO;
 

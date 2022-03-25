@@ -1,7 +1,6 @@
 package com.movies.api.moviesapi.model;
 
 import java.util.logging.Logger;
-import com.movies.api.moviesapi.model.Movie;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
