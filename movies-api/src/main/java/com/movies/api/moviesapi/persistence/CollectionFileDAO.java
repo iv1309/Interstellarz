@@ -36,7 +36,7 @@ public class CollectionFileDAO implements CollectionDAO{
                                         // objects and JSON text format written
                                         // to the file
     private static int nextId;  // The next Id to assign to a new hero
-    private String filename="data/collections.json";;    // Filename to read from and write to
+    private String filename="data/collections.json";    // Filename to read from and write to
 
     public CollectionFileDAO(ObjectMapper objectMapper) throws IOException {
         this.objectMapper = objectMapper;

@@ -1,4 +1,3 @@
-/**
 package com.movies.api.moviesapi.persistence;
 
 import java.io.IOException;
@@ -20,5 +19,4 @@ public interface UserDAO {
     boolean deleteUser(int id) throws IOException;
 
 }
-*/
 

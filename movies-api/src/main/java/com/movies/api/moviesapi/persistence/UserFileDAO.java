@@ -1,4 +1,3 @@
-/**
 package com.movies.api.moviesapi.persistence;
 
 import java.io.File;
@@ -11,7 +10,6 @@ import java.util.logging.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.movies.api.moviesapi.model.User;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,10 +22,9 @@ public class UserFileDAO implements UserDAO{
                                         // objects and JSON text format written
                                         // to the file
     private static int nextId;  // The next Id to assign to a new hero
-    private String filename;    // Filename to read from and write to
+    private String filename = "data/users.json";    // Filename to read from and write to
 
-    public UserFileDAO(@Value("${users.file}") String filename,ObjectMapper objectMapper) throws IOException {
-        this.filename = filename;
+    public UserFileDAO(ObjectMapper objectMapper) throws IOException {
         this.objectMapper = objectMapper;
         load();  // load the heroes from the file
     }
@@ -146,4 +143,3 @@ public class UserFileDAO implements UserDAO{
         }
     }
 }
-*/

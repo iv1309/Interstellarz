@@ -1,4 +1,3 @@
-/**
 package com.movies.api.moviesapi.controller;
 
 import org.springframework.http.HttpStatus;
@@ -136,4 +135,3 @@ public class UserController {
         }
     }
 }
-*/

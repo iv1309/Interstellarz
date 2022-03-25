@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 
 import { MoviesService } from 'src/app/core/services/movies.service';
 import { Movie } from 'src/app/core/model/movies';
+import { UsersService } from 'src/app/core/services/users.service';
+import { User } from 'src/app/core/model/users';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
     ){}
 
   ngOnInit() {
