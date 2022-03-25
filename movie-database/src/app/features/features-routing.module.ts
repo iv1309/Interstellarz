@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGaurdService } from '../core/services/auth-gaurd.service';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -12,12 +13,12 @@ import { UserComponent } from './users/user/user.component';
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'movies', loadChildren: () => import('./movies/movies.module').then(x => x.MoviesModule)},
-  { path: 'home',   component: HomeComponent   },
+  { path: 'home',   component: HomeComponent}, 
   { path: 'login',   component: LoginComponent   },
   { path: 'register',   component: RegisterComponent   },
   { path: 'detail/:id', component: MovieDetailsComponent },
-  { path: 'user', component: UserComponent },
-  { path: 'collections/:id', component: CollectionComponent },
+  { path: 'user', component: UserComponent, canActivate:[AuthGaurdService] },
+  { path: 'collections/:id', component: CollectionComponent, canActivate:[AuthGaurdService] },
   { path: 'logout',   component: LogoutComponent   },
 
   
