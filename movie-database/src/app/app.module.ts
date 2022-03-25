@@ -19,7 +19,6 @@ import { BoardModeratorComponent } from './features/board-moderator/board-modera
 import { BoardUserComponent } from './features/board-user/board-user.component';
 import { LoginComponent } from './features/login/login.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +28,7 @@ import { LoginComponent } from './features/login/login.component';
     BoardUserComponent,
     LoginComponent,
     RegisterComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     CoreModule,

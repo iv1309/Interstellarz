@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { CollectionComponent } from './movies/collection/collection.component';
 import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
 import { RegisterComponent } from './register/register.component';
@@ -17,6 +18,8 @@ const routes: Routes = [
   { path: 'detail/:id', component: MovieDetailsComponent },
   { path: 'user', component: UserComponent },
   { path: 'collections/:id', component: CollectionComponent },
+  { path: 'logout',   component: LogoutComponent   },
+
   
 ];
  

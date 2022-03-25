@@ -16,12 +16,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from '../in-memory-data.service';
 import { CoreModule } from '../core/core.module';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    UserComponent
+    UserComponent,
+    LogoutComponent
   ],
   imports: [
     CommonModule,
