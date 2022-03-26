@@ -29,24 +29,29 @@
             </div>
           </div>
         </div>
+
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="firstName">FirstName</label>
           <input
-            type="email"
+            type="firstName"
             class="form-control"
-            name="email"
-            [(ngModel)]="form.email"
-            required
-            email
-            #email="ngModel"
+            name="firstName"
+            [(ngModel)]="form.firstName"
+            #firstName="ngModel"
           />
-          <div class="alert-danger" *ngIf="email.errors && f.submitted">
-            <div *ngIf="email.errors['required']">*Required Field</div>
-            <div *ngIf="email.errors['email']">
-              Email must be a valid address
-            </div>
-          </div>
         </div>
+
+        <div class="form-group">
+          <label for="lastName">lastName</label>
+          <input
+            type="lastName"
+            class="form-control"
+            name="lastName"
+            [(ngModel)]="form.lastName"
+            #lastName="ngModel"
+          />
+        </div>
+
         <div class="form-group">
           <label for="password">Password</label>
           <input
@@ -66,7 +71,7 @@
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-primary btn-block">Sign Up</button>
+          <button (click)="add()" class="btn btn-primary btn-block">Sign Up</button>
         </div>
   
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">

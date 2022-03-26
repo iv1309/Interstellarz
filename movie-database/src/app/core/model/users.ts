@@ -6,6 +6,4 @@ export interface User {
     password: string;
     firstName: string;
     lastName: string;
-    token: string;
-    collections: Collection[];
 }

@@ -21,6 +21,6 @@ export const COLLECTION1: Collection[] = [
   ];
 
 export const USERS: User[] = [
-  { id: 1, username: 'JohnSmith', password: "password", firstName: "John", lastName: "Smith", token: "1", collections: COLLECTION1},
-  { id: 2, username: 'Ateez', password: "8makes1team", firstName: "Kim", lastName: "Hongjoong", token: "2", collections: COLLECTION2 }
+  { id: 1, username: 'JohnSmith', password: "password", firstName: "John", lastName: "Smith"},
+  { id: 2, username: 'Ateez', password: "8makes1team", firstName: "Kim", lastName: "Hongjoong"}
 ];
