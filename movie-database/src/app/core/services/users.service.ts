@@ -40,6 +40,17 @@ export class UsersService {
     */
   }
 
+  /* GET heroes whose name contains search term */
+  searchUsers(term: string): Observable<User[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<User[]>(`${this.usersUrl}/?name=${term}`).pipe(
+      catchError(this.handleError<User[]>('searchMovies', []))
+    );
+  }
+
   getModeratorBoard(): Observable<any> {
     return this.http.get(API_URL + 'mod', { responseType: 'text' });
   }

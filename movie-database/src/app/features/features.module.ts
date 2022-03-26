@@ -5,10 +5,7 @@ import { FeaturesRoutingModule } from './features-routing.module';
 import { RouterModule} from '@angular/router';
  
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { MovieDetailsComponent } from './movies/movie-details/movie-details.component'; 
 import { FormsModule } from '@angular/forms';
-import { MovieComponent } from './movies/movie/movie.component';
 import { UserComponent } from './users/user/user.component';
 import { MoviesModule } from './movies/movies.module';
 
@@ -17,6 +14,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from '../in-memory-data.service';
 import { CoreModule } from '../core/core.module';
 import { LogoutComponent } from './logout/logout.component';
+import { UsersModule } from './users/users.module';
 
 
 @NgModule({
@@ -30,6 +28,7 @@ import { LogoutComponent } from './logout/logout.component';
     MoviesModule,
     CoreModule,
     FeaturesRoutingModule,
+    UsersModule,
     RouterModule,
     FormsModule,
     HttpClientModule,
