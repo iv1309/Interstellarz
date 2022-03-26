@@ -8,14 +8,5 @@
     </a>
   </div>
 
-  <div class="users">
-    <a *ngFor="let user of users"> <button
-      routerLink="/user/{{user.id}}">
-      {{user.username}}
-      </button>
-      <span>&nbsp;</span>
-    </a>
-  </div>
-
   <app-search-movie></app-search-movie>
   <app-search-users></app-search-users>
