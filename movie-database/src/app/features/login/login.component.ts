@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
 
     if (this.loginservice.authenticate(this.username, this.password)
     ) {
-      this.router.navigate(['user'])
+      this.router.navigate(['profile'])
       this.invalidLogin = false
       this.loginSuccess = true
       this.successMessage = 'Login Successful.'

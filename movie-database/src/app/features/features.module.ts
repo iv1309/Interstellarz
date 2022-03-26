@@ -6,7 +6,6 @@ import { RouterModule} from '@angular/router';
  
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
-import { UserComponent } from './users/user/user.component';
 import { MoviesModule } from './movies/movies.module';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -20,15 +19,14 @@ import { UsersModule } from './users/users.module';
 @NgModule({
   declarations: [
     HomeComponent,
-    UserComponent,
     LogoutComponent
   ],
   imports: [
     CommonModule,
     MoviesModule,
+    UsersModule,
     CoreModule,
     FeaturesRoutingModule,
-    UsersModule,
     RouterModule,
     FormsModule,
     HttpClientModule,

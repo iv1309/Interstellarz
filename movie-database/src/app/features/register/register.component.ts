@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/core/model/users';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { UsersService } from 'src/app/core/services/users.service';
@@ -24,6 +25,7 @@ export class RegisterComponent implements OnInit {
   users: User[] =[];
 
   constructor(
+    private router: Router,
     private authService: AuthService,
     private usersService: UsersService
     ) { }
@@ -48,6 +50,7 @@ export class RegisterComponent implements OnInit {
       .subscribe((user: User) => {
         this.users.push(user);
       });
+      this.router.navigate(['user'])
   }
 }
 

@@ -15,19 +15,27 @@ import { ThisReceiver } from '@angular/compiler';
 export class HomeComponent implements OnInit {
 
   movies: Movie[] = [];
+  users: User[] = [];
 
   constructor(
     private router: Router,
     private moviesService: MoviesService,
+    private usersService: UsersService
     ){}
 
   ngOnInit() {
     this.getMovies();
+    this.getUsers();
   }
 
   getMovies(): void {
     this.moviesService.getMovies()
       .subscribe(movies => this.movies = movies.slice(1, 5));
+  }
+
+  getUsers(): void{
+    this.usersService.getUsers()
+    .subscribe(users => this.users = users);
   }
 
 }

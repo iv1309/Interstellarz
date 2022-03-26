@@ -6,9 +6,11 @@
 
     <ul class="search-result">
       <li *ngFor="let user of users$ | async" >
+        <a routerLink="/user/{{user.id}}">
           <table>
             <td>{{user.username}}</td>
         </table>
+      </a>
       </li>
     </ul>
 
