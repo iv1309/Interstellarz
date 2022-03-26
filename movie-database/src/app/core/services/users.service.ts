@@ -11,7 +11,7 @@ const API_URL = 'http://localhost:8080/api/test/';
 })
 
 export class UsersService {
-  private usersUrl = 'http://localhost:8080/collections';
+  private usersUrl = 'http://localhost:8080/users';
 
   constructor(
     private http: HttpClient

@@ -2,27 +2,40 @@ package com.movies.api.moviesapi.persistence;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.movies.api.moviesapi.model.User;
+import com.movies.api.moviesapi.model.Movie;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * Implements the functionality for JSON file-based peristance for Products
+ * 
+ * {@literal @}Component Spring annotation instantiates a single instance of this
+ * class and injects the instance into other classes as needed
+ * 
+ * @author Team 1
+ */
 @Component
 public class UserFileDAO implements UserDAO{
     private static final Logger LOG = Logger.getLogger(UserFileDAO.class.getName());
     Map<Integer,User> users;   // Provides a local cache of the hero objects
+    Map<Integer, Movie> movies;
                                 // so that we don't need to read from the file
                                 // each time
     private ObjectMapper objectMapper;  // Provides conversion between Hero
                                         // objects and JSON text format written
                                         // to the file
     private static int nextId;  // The next Id to assign to a new hero
-    private String filename = "data/users.json";    // Filename to read from and write to
+    private String filename="data/users.json";    // Filename to read from and write to
 
     public UserFileDAO(ObjectMapper objectMapper) throws IOException {
         this.objectMapper = objectMapper;
@@ -83,6 +96,9 @@ public class UserFileDAO implements UserDAO{
         return true;
     }
 
+    /**
+    ** {@inheritDoc}
+     */
     @Override
     public User[] getUsers() {
         synchronized(users) {
@@ -90,6 +106,9 @@ public class UserFileDAO implements UserDAO{
         }
     }
 
+    /**
+    ** {@inheritDoc}
+     */
     @Override
     public User[] findUsers(String containsText) {
         synchronized(users) {
@@ -97,6 +116,9 @@ public class UserFileDAO implements UserDAO{
         }
     }
 
+    /**
+    ** {@inheritDoc}
+     */
     @Override
     public User getUser(int id) {
         synchronized(users) {
@@ -107,6 +129,9 @@ public class UserFileDAO implements UserDAO{
         }
     }
 
+    /**
+    ** {@inheritDoc}
+     */
     @Override
     public User createUser(User user) throws IOException {
         synchronized(users) {
@@ -119,6 +144,9 @@ public class UserFileDAO implements UserDAO{
         }
     }
 
+    /**
+    ** {@inheritDoc}
+     */
     @Override
     public User updateUser(User user) throws IOException {
         synchronized(users) {
@@ -131,6 +159,9 @@ public class UserFileDAO implements UserDAO{
         }
     }
 
+    /**
+    ** {@inheritDoc}
+     */
     @Override
     public boolean deleteUser(int id) throws IOException {
         synchronized(users) {
@@ -142,4 +173,7 @@ public class UserFileDAO implements UserDAO{
                 return false;
         }
     }
+
 }
+
+

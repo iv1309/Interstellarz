@@ -15,7 +15,6 @@ public class User {
     @JsonProperty("firstname") private String firstname;
     @JsonProperty("lastname") private String lastname;
     @JsonProperty("token") private String token;
-    @JsonProperty("collections") private Collection[] collections;
 
     public User(@JsonProperty("id") int id, @JsonProperty("name") String name) {
         this.id = id;

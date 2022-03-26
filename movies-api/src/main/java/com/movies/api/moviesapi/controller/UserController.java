@@ -19,7 +19,6 @@ import java.util.logging.Logger;
 import com.movies.api.moviesapi.model.User;
 import com.movies.api.moviesapi.persistence.UserDAO;
 
-
 @RestController
 @RequestMapping("users")
 public class UserController {
@@ -99,6 +98,7 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    
 
     @PutMapping("")
     public ResponseEntity<User> updateUser(@RequestBody User user) {
@@ -134,4 +134,5 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 }
