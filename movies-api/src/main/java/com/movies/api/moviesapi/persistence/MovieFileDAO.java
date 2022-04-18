@@ -138,14 +138,15 @@ public class MovieFileDAO implements MovieDAO{
      */
     @Override
     public Movie createMovie(Movie movie) throws IOException {
-        synchronized(movies) {
-            // We create a new hero object because the id field is immutable
-            // and we need to assign the next unique id
-            Movie newMovie = new Movie(nextId(),movie.getName(), movie.getReleaseDate(), movie.getCastMembers(), movie.getStudio(), movie.getGenre(), 0, false, movie.getLength());
-            movies.put(newMovie.getId(),newMovie);
-            save(); // may throw an IOException
-            return newMovie;
-        }
+        return new Movie();
+//        synchronized(movies) {
+//            // We create a new hero object because the id field is immutable
+//            // and we need to assign the next unique id
+//            Movie newMovie = new Movie(nextId(),movie.getName(), movie.getReleaseDate(), movie.getCastMembers(), movie.getStudio(), movie.getGenre(), 0, false, movie.getLength());
+//            movies.put(newMovie.getId(),newMovie);
+//            save(); // may throw an IOException
+//            return newMovie;
+//        }
     }
 
     /**

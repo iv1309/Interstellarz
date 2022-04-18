@@ -1,0 +1,3 @@
+com/movies/api/moviesapi/controller/MoviesAPIController.class
+com/movies/api/moviesapi/services/MovieService.class
+com/movies/api/moviesapi/repository/MovieRepository.class

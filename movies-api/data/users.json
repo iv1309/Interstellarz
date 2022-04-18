@@ -1,1 +1,3 @@
-[{"id":1,"name":"JohnSmith","username":"JohnSmith","password":null,"firstname":null,"lastname":null,"token":null},{"id":2,"name":"ATEEZ","username":"ATEEZ","password":null,"firstname":null,"lastname":null,"token":null}]
+[{"id":1,"name":"JohnSmith","username":"JohnSmith","password":"Hello123","firstname":null,"lastname":null,"token":null},
+  {"id":2,"name":"ATEEZ","username":"ATEEZ","password":null,"firstname":null,"lastname":null,"token":null},
+  {"id":3,"name":"Hello","username":"Hello","password":"howdy","firstname":null,"lastname":null,"token":null}]
