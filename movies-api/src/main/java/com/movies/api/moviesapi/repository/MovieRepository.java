@@ -1,71 +1,60 @@
 package com.movies.api.moviesapi.repository;
 
 import com.movies.api.moviesapi.model.Movie;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class MovieRepository implements CrudRepository<Movie, Integer> {
+public interface MovieRepository extends CrudRepository<Movie, Integer> {
 
-    @Override
-    public <S extends Movie> S save(S entity) {
-        return null;
-    }
+    <S extends Movie> S save(S entity);
 
-    @Override
-    public <S extends Movie> Iterable<S> saveAll(Iterable<S> entities) {
-        return null;
-    }
+    <S extends Movie> Iterable<S> saveAll(Iterable<S> entities);
 
-    @Override
-    public Optional<Movie> findById(Integer integer) {
-        return Optional.empty();
-    }
+    @Query(value = "SELECT \n" +
+            "mov.\"movieID\", \n" +
+            "mov.\"movieName\", \n" +
+            "mov.\"date\", \n" +
+            "mov.\"length\", \n" +
+            "mov.\"MPAARating\", \n" +
+            "mov.\"bechdelTest\", \n" +
+            "mov.\"imdbRating\",\n" +
+            "gen.\"genre\"\n" +
+            "FROM p320_04.movie mov, p320_04.genre gen, p320_04.movie_genre genmov\n" +
+            "WHERE mov.\"movieID\" = genmov.\"movieID\" AND gen.\"genreID\" = genmov.\"genreID\" AND mov.\"movieID\" = ?1", nativeQuery = true)
+    Optional<Movie> findById(Integer integer);
 
-    @Override
-    public boolean existsById(Integer integer) {
-        return false;
-    }
+    boolean existsById(Integer integer);
 
-    @Override
-    public Iterable<Movie> findAll() {
-        return null;
-    }
+    @Query(value = "SELECT \n" +
+            "mov.\"movieID\", \n" +
+            "mov.\"movieName\", \n" +
+            "mov.\"date\", \n" +
+            "mov.\"length\", \n" +
+            "mov.\"MPAARating\", \n" +
+            "mov.\"bechdelTest\", \n" +
+            "mov.\"imdbRating\",\n" +
+            "gen.\"genre\"\n" +
+            "FROM p320_04.movie mov, p320_04.genre gen, p320_04.movie_genre genmov\n" +
+            "WHERE mov.\"movieID\" = genmov.\"movieID\" AND gen.\"genreID\" = genmov.\"genreID\"", nativeQuery = true)
+    List<Movie> findAll();
 
-    @Override
-    public Iterable<Movie> findAllById(Iterable<Integer> integers) {
-        return null;
-    }
+    Iterable<Movie> findAllById(Iterable<Integer> integers);
 
-    @Override
-    public long count() {
-        return 0;
-    }
+    long count();
 
-    @Override
-    public void deleteById(Integer integer) {
+    void deleteById(Integer integer);
 
-    }
+    void delete(Movie entity);
 
-    @Override
-    public void delete(Movie entity) {
+    void deleteAllById(Iterable<? extends Integer> integers);
 
-    }
+    void deleteAll(Iterable<? extends Movie> entities);
 
-    @Override
-    public void deleteAllById(Iterable<? extends Integer> integers) {
-
-    }
-
-    @Override
-    public void deleteAll(Iterable<? extends Movie> entities) {
-
-    }
-
-    @Override
-    public void deleteAll() {
-
-    }
+    void deleteAll();
 }
+

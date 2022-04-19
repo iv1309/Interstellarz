@@ -1,46 +1,52 @@
 package com.movies.api.moviesapi.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "movie")
-
 public class Movie {
 
     static final String STRING_FORMAT = "Movie [id=%d, name=%s]";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "movieID")
+    @Column(name = "movieid")
     public int movieID;
 
-    @Column(name = "movieName")
+    @Column(name = "moviename")
     public String movieName;
 
-    @Column(name = "releaseDate")
+    @Column(name = "date")
     public String releaseDate;
 
     @Column(name = "length")
     public String length;
 
-    @Column(name = "MPAARating")
+    @Column(name = "mpaarating")
     public String MPAARating;
 
-    @Column(name = "bechdelTest")
+    @Column(name = "bechdeltest")
     public int bechdelTest;
+
+    @Column(name = "imdbrating")
+    public int IMDBRating;
+
+    @Column(name = "genre")
+    public String genre;
 
     public Movie() {}
 
-    public Movie(int movieID, String movieName, String length, String MPAARating, int bechdelTest) {
+    public Movie(int movieID, String movieName, String releaseDate,
+                 String length, String MPAARating, int bechdelTest, int IMDBRating, String genre) {
         this.movieID = movieID;
         this.movieName = movieName;
+        this.releaseDate = releaseDate;
         this.length = length;
         this.MPAARating = MPAARating;
         this.bechdelTest = bechdelTest;
+        this.IMDBRating = IMDBRating;
+        this.genre = genre;
     }
 
     public int getId() { return movieID; }
@@ -51,7 +57,9 @@ public class Movie {
 
     public String getReleaseDate() { return releaseDate; }
 
+    public String getGenre() { return genre; }
+
     @Override
-    public String toString() { return String.format(STRING_FORMAT,movieID,movieName); }
+    public String toString() { return String.format(STRING_FORMAT, movieID, movieName); }
 }
 

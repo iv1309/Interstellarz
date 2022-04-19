@@ -1,16 +1,17 @@
 package com.movies.api.moviesapi.services;
 
 import com.movies.api.moviesapi.model.Movie;
-import com.movies.api.moviesapi.repository.MovieRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
-public class MovieService {
-    @Autowired
-    private MovieRepository repository;
+@Component
+public interface MovieService {
 
-    public List<Movie> getMovies() {
-        return (List<Movie>)repository.findAll();
-    }
+    List<Movie> getMovies();
+    Optional<Movie> getMovie(int id);
+    Movie insert(Movie p);
+    boolean delete(int id);
+    boolean update(Movie p);
 }
