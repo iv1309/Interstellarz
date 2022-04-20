@@ -40,11 +40,38 @@ export class MoviesService {
     //return of(movie);
   }
 
+  popularMovies(): Observable<String[]> {
+      return this.http.get<String[]>(this.moviesUrl + "/popularMovies").pipe(
+      catchError(this.handleError<String[]>(`getPopularMovies`))
+    );
+  }
+
+  newReleases(): Observable<String[]> {
+        return this.http.get<String[]>(this.moviesUrl + "/newReleases").pipe(
+        catchError(this.handleError<String[]>(`getNewReleases`))
+      );
+    }
+
   updateMovie(movie: Movie): Observable<any> {
     return this.http.put(this.moviesUrl, movie, this.httpOptions).pipe(
       catchError(this.handleError<any>('updateMovie'))
     );
   }
+
+    amongstFriends(id: number): Observable<String[]> {
+      const url = `${this.moviesUrl}/amongstFriends/${id}`;
+
+      return this.http.get<String[]>(url, this.httpOptions).pipe(
+        catchError(this.handleError<String[]>('amongstFriends'))
+      );
+    }
+
+    topTen(id: number): Observable<String[]> {
+          const url = `${this.moviesUrl}/topTen/${id}`;
+          return this.http.get<String[]>(url, this.httpOptions).pipe(
+          catchError(this.handleError<String[]>('topTen'))
+        );
+        }
 
   addMovie(movie: Movie): Observable<Movie> {
     return this.http.post<Movie>(this.moviesUrl, movie, this.httpOptions).pipe(
@@ -74,12 +101,13 @@ export class MoviesService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-  
+
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-  
+
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
   }
+
 }
