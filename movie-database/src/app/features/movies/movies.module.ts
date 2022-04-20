@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CollectionsComponent } from './collections/collections.component';
 import { CollectionComponent } from './collection/collection.component';
+import { RecommendationsService } from 'src/app/core/services/recommendations.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CollectionComponent } from './collection/collection.component';
     MovieDetailsComponent,
     SearchMovieComponent,
     CollectionsComponent,
-    CollectionComponent
+    CollectionComponent, 
+    RecommendationsService
   ],
   imports: [
     CommonModule,

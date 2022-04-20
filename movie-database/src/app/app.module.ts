@@ -18,6 +18,7 @@ import { RegisterComponent } from './features/register/register.component';
 import { BoardModeratorComponent } from './features/board-moderator/board-moderator.component';
 import { BoardUserComponent } from './features/board-user/board-user.component';
 import { LoginComponent } from './features/login/login.component';
+import { RecommendationComponent } from './recommendation/recommendation.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LoginComponent } from './features/login/login.component';
     BoardModeratorComponent,
     BoardUserComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RecommendationComponent
     ],
   imports: [
     BrowserModule,
