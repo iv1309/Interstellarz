@@ -28,6 +28,7 @@ public class MoviesAPIController {
     @GetMapping("/{id}")
     public Optional<Movie> getMovie(@PathVariable int id) {
         LOG.info("GET /movie/" + id);
+        System.out.println("Hello1");
         return movieService.getMovie(id);
     }
 }

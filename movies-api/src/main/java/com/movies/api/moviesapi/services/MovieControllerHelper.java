@@ -16,7 +16,14 @@ public class MovieControllerHelper implements MovieService {
 
     @Override
     public List<Movie> getMovies() {
-        return repository.findAll();
+        List<Movie> movies = repository.findAll();
+        
+        for(Movie m: movies){
+            System.out.println("hello2");
+            System.out.println(m.getName());
+        }
+
+        return movies;
     }
 
     @Override

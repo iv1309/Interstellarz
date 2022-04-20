@@ -1,4 +1,9 @@
-com/movies/api/moviesapi/services/MovieControllerHelper.class
-com/movies/api/moviesapi/controller/MoviesAPIController.class
-com/movies/api/moviesapi/repository/MovieRepository.class
-com/movies/api/moviesapi/services/MovieService.class
+com\movies\api\moviesapi\model\User.class
+com\movies\api\moviesapi\WebConfig.class
+com\movies\api\moviesapi\controller\MoviesAPIController.class
+com\movies\api\moviesapi\services\MovieService.class
+com\movies\api\moviesapi\model\Movie.class
+com\movies\api\moviesapi\model\Collection.class
+com\movies\api\moviesapi\MoviesApiApplication.class
+com\movies\api\moviesapi\repository\MovieRepository.class
+com\movies\api\moviesapi\services\MovieControllerHelper.class
