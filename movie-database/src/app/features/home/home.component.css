@@ -1,0 +1,51 @@
+body {
+    font: normal 16px papyrus ;
+}
+
+h1{
+    font-style: bold;
+    text-align: center;
+    border-radius: 25px;
+    border: 2px solid #d32f2f;
+    padding: 20px;
+}
+
+p{
+    font: normal 16px Garamond;
+    flex: 1;
+    
+}
+
+div.search{
+    display: flex;
+}
+
+div.movieSearch{
+    flex: 1;
+}
+
+div.userSearch{
+    flex: 1;
+    margin-right: 100px;
+}
+
+div.topMovies{
+    display: flex;
+}
+
+div.month{
+    flex: 1;
+}
+
+div.now{
+    flex: 1;
+    margin-left: 150px;
+}
+
+img {  
+    flex: 5;
+    float: right;
+    max-width: 50%;  
+    height: auto;  
+    } 
+

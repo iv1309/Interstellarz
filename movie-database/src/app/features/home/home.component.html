@@ -1,18 +1,36 @@
-<h2>Movies Library</h2>
-<div class="movies-top-ten">
+
+<body>
+  <div class="header">
+  <h1>Cliché</h1>
+
+  <p><a href="https://lithub.com/read-the-1985-comic-strip-that-inspired-the-bechdel-test/">Learn More About the Bechdel Comic Here!!</a></p>
+</div>
+  <div class="search">
+  <div class="movieSearch">
+    <app-search-movie></app-search-movie>
+  </div>
+  <div class="userSearch">
+    <app-search-users></app-search-users>
+  </div>
+</div>
+
+<div class="topMovies">
+<div class="months">
   <div><H3>Top 20 Movies of the Last 3 Months:</H3></div>
     <a *ngFor="let movie of movies">
       <div>{{movie}}</div>
-      <span></span>
-
-    </a>
-  <div><H3>Top 5 Movies of this Month:</H3></div>
-  <a *ngFor="let release of releases"> <div>{{release}}</div>
-      <span></span>
     </a>
   </div>
 
-  <p><a href="https://lithub.com/read-the-1985-comic-strip-that-inspired-the-bechdel-test/">Learn More Baout the Bechdel Comic Here!!</a></p>
+<div class="now">
+  <div><H3>Top 5 Movies of this Month:</H3></div>
+  <a *ngFor="let release of releases"> 
+    <div>{{release}}</div>
+    </a>
+  </div>
 
-  <app-search-movie></app-search-movie>
-  <app-search-users></app-search-users>
+  <div class="picture">
+    <img class="img" src="/assets/Images/bechdelcomic.png">
+  </div>
+</div>
+</body>
