@@ -30,12 +30,35 @@ public class MovieControllerHelper implements MovieService {
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public boolean deleteMovie(int id) {
+        repository.deleteGenreById(id);
+        repository.deleteDirectorById(id);
+        repository.deleteStudioById(id);
+        repository.deleteCastById(id);
+        repository.deleteMovieById(id);
+        return true;
     }
 
     @Override
     public boolean update(Movie p) {
         return false;
     }
+
+    @Override
+    public List<String> popularMovies() {
+        return repository.popularMovies();
+    }
+
+    @Override
+    public List<String> newReleases() {
+        return repository.newReleases();
+    }
+
+    @Override
+    public List<String> amongstFriends(int id) {
+        return repository.amongstFriends(id);
+    }
+
+    @Override
+    public List<String> topTen(int id) { return repository.topTen(id); }
 }

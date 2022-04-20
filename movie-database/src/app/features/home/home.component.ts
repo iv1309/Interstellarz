@@ -14,8 +14,9 @@ import { ThisReceiver } from '@angular/compiler';
 })
 export class HomeComponent implements OnInit {
 
-  movies: Movie[] = [];
+  movies: String[] = [];
   users: User[] = [];
+  releases: String[] = [];
 
   constructor(
     private router: Router,
@@ -25,13 +26,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getMovies();
-    this.getUsers();
+    this.getNewReleases();
   }
 
   getMovies(): void {
-    this.moviesService.getMovies()
-      .subscribe(movies => this.movies = movies.slice(1, 5));
+    this.moviesService.popularMovies()
+      .subscribe(movies => this.movies = movies);
   }
+
+  getNewReleases(): void {
+      this.moviesService.newReleases()
+        .subscribe(release => this.releases = release);
+    }
 
   getUsers(): void{
     this.usersService.getUsers()

@@ -30,15 +30,18 @@ public class Movie {
     public int bechdelTest;
 
     @Column(name = "imdbrating")
-    public int IMDBRating;
+    public Float IMDBRating;
 
     @Column(name = "genre")
     public String genre;
 
+    @Column(name = "name")
+    public String cast;
+
     public Movie() {}
 
     public Movie(int movieID, String movieName, String releaseDate,
-                 String length, String MPAARating, int bechdelTest, int IMDBRating, String genre) {
+                 String length, String MPAARating, int bechdelTest, Float IMDBRating, String genre, String cast) {
         this.movieID = movieID;
         this.movieName = movieName;
         this.releaseDate = releaseDate;
@@ -47,6 +50,7 @@ public class Movie {
         this.bechdelTest = bechdelTest;
         this.IMDBRating = IMDBRating;
         this.genre = genre;
+        this.cast = cast;
     }
 
     public int getId() { return movieID; }
@@ -58,6 +62,8 @@ public class Movie {
     public String getReleaseDate() { return releaseDate; }
 
     public String getGenre() { return genre; }
+
+    public String getCastMembers() {return cast; }
 
     @Override
     public String toString() { return String.format(STRING_FORMAT, movieID, movieName); }

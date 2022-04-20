@@ -1,10 +1,14 @@
 <h2>Movies Library</h2>
 <div class="movies-top-ten">
-    <a *ngFor="let movie of movies"> <button
-      routerLink="/detail/{{movie.id}}">
-      {{movie.name}}
-      </button>
-      <span>&nbsp;</span>
+  <div><H3>Top 20 Movies of the Last 3 Months:</H3></div>
+    <a *ngFor="let movie of movies">
+      <div>{{movie}}</div>
+      <span></span>
+
+    </a>
+  <div><H3>Top 5 Movies of this Month:</H3></div>
+  <a *ngFor="let release of releases"> <div>{{release}}</div>
+      <span></span>
     </a>
   </div>
 

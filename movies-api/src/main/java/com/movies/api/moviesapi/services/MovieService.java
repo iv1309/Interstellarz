@@ -11,7 +11,11 @@ public interface MovieService {
 
     List<Movie> getMovies();
     Optional<Movie> getMovie(int id);
+    List<String> popularMovies();
+    List<String> newReleases();
+    List<String> amongstFriends(int id);
+    List<String> topTen(int id);
     Movie insert(Movie p);
-    boolean delete(int id);
+    boolean deleteMovie(int id);
     boolean update(Movie p);
 }
