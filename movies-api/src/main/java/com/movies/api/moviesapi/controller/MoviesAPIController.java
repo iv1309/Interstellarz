@@ -58,4 +58,16 @@ public class MoviesAPIController {
         LOG.info("GET /movies/topTen/" + id);
         return movieService.topTen(id);
     }
+
+    @GetMapping("/getRecommendation/{id}")
+    public List<String> movieRecommend(@PathVariable int id) {
+        LOG.info("GET /movieRecommend/topTen/" + id);
+        return movieService.movieRecommend(id);
+    }
+
+    @GetMapping("/followers/{id}")
+    public Integer getFollowers(@PathVariable int id) {
+        LOG.info("GET /followers/" + id);
+        return movieService.followers(id);
+    }
 }

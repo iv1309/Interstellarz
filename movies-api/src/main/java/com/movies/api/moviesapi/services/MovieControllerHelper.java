@@ -68,4 +68,10 @@ public class MovieControllerHelper implements MovieService {
 
     @Override
     public List<String> topTen(int id) { return repository.topTen(id); }
+
+    @Override
+    public List<String> movieRecommend(int id) { return repository.movieRecommend(id); }
+
+    @Override
+    public Integer followers(int id) { return repository.followers(id); }
 }

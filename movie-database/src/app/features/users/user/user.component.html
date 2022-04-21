@@ -1,7 +1,7 @@
 
 <div *ngIf="user">
     <h2>USER: {{user.username | uppercase}}</h2>
-    <div><span>id: </span>{{user.id}}</div>
+    <div><span>Followers: </span>{{followers}}</div>
     <div>
       <label for="user-name">User name: </label>
       <input id="user-name" [(ngModel)]="user.username" placeholder="name">
@@ -10,16 +10,14 @@
 
 <div class="topMovies">
 
-<h3>Movies Popular Amongst My Friends:</h3>
-<div class = "friends">
+<div><h3>Movies Popular Amongst My Friends:</h3></div>
 <a *ngFor="let movie of friends">
   <div>{{movie}}</div>
   <span></span>
 </a>
-</div>
-  
-  <h3>Your Top Ten:</h3>
+
   <div class = "tenMovies">
+    <div><h3>Your Top Ten:</h3></div>
   <a *ngFor="let movie of tenMovies">
     <div>{{movie}}</div>
     <span></span>
@@ -27,8 +25,8 @@
 </div>
 
 
-<h3>Recomendation:</h3>
-  <div class = "recommendation">
+<div><h3>Recommendation:</h3></div>
+  <div class = "tenMovies">
   <a *ngFor="let movie of recommendation">
     <div>{{movie}}</div>
     <span></span>

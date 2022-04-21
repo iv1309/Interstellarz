@@ -52,13 +52,6 @@ export class MoviesService {
       );
     }
 
-    getRecommendation(id: number): Observable<String[]> {
-      const url = `${this.moviesUrl}/getRecommendation/${id}`;
-      return this.http.get<String[]>(url).pipe(
-      catchError(this.handleError<String[]>(`getRecommendation`))
-    );
-    }  
-
   updateMovie(movie: Movie): Observable<any> {
     return this.http.put(this.moviesUrl, movie, this.httpOptions).pipe(
       catchError(this.handleError<any>('updateMovie'))
@@ -80,6 +73,13 @@ export class MoviesService {
         );
         }
 
+  followers(id: number): Observable<number> {
+            const url = `${this.moviesUrl}/followers/${id}`;
+            return this.http.get<number>(url, this.httpOptions).pipe(
+            catchError(this.handleError<number>('followers'))
+          );
+          }
+
   addMovie(movie: Movie): Observable<Movie> {
     return this.http.post<Movie>(this.moviesUrl, movie, this.httpOptions).pipe(
       catchError(this.handleError<Movie>('addMovie'))
@@ -94,6 +94,13 @@ export class MoviesService {
       catchError(this.handleError<Movie>('deleteMovie'))
     );
   }
+
+  getRecommendation(id: number): Observable<String[]> {
+      const url = `${this.moviesUrl}/getRecommendation/${id}`;
+      return this.http.get<String[]>(url).pipe(
+      catchError(this.handleError<String[]>(`getRecommendation`))
+    );
+    }
 
   /* GET heroes whose name contains search term */
   searchMovies(term: string): Observable<Movie[]> {

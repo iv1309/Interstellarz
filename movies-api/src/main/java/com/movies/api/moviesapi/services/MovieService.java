@@ -15,6 +15,8 @@ public interface MovieService {
     List<String> newReleases();
     List<String> amongstFriends(int id);
     List<String> topTen(int id);
+    List<String> movieRecommend(int id);
+    Integer followers(int id);
     Movie insert(Movie p);
     boolean deleteMovie(int id);
     boolean update(Movie p);

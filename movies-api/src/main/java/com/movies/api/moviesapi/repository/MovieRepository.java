@@ -113,5 +113,12 @@ public interface MovieRepository extends CrudRepository<Movie, Integer> {
             "ORDER BY m.\"imdbRating\" DESC\n" +
             "LIMIT 10", nativeQuery = true)
     List<String> topTen(Integer integer);
+
+    @Query(value = "SELECT \"movieName\" FROM p320_04.movie m WHERE \"movieID\" NOT IN (SELECT \"movieID\" FROM p320_04.watched WHERE \"userID\" = ?1)\n" +
+            "AND \"bechdelTest\" = 3 AND \"imdbRating\" IS NOT NULL ORDER BY \"imdbRating\" DESC LIMIT 5", nativeQuery = true)
+    List<String> movieRecommend(Integer integer);
+
+    @Query(value = "SELECT COUNT(*) FROM p320_04.follow WHERE \"userID\" = ?1", nativeQuery = true)
+    Integer followers(Integer integer);
 }
 
