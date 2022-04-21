@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'movies', loadChildren: () => import('./movies/movies.module').then(x => x.MoviesModule)},
   { path: 'users', loadChildren: () => import('./users/users.module').then(x => x.UsersModule)},
   { path: 'home',   component: HomeComponent}, 
-  { path: 'login',   component: LoginComponent   },
+  { path: 'login',   component: LoginComponent},
   { path: 'register',   component: RegisterComponent   },
   { path: 'detail/:id', component: MovieDetailsComponent },
   { path: 'user/:id', component: UserDetailsComponent },

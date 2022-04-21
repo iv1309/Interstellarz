@@ -20,4 +20,13 @@ export class AuthGaurdService {
     return false;
 
   }
+
+  loggedIn(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this.authService.isUserLoggedOut())
+      return true;
+
+    this.router.navigate(['login']);
+    return false;
+
+  }
 }

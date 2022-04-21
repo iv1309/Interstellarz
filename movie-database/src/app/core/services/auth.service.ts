@@ -66,6 +66,12 @@ export class AuthService {
     return user
   }
 
+  isUserLoggedOut() {
+    let user = sessionStorage.getItem('username')
+    // console.log(!(user === null))
+    return user === null
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   

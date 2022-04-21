@@ -9,13 +9,13 @@
     <a routerLink='/movies' routerLinkActive="active">Movies</a>
   </li>
   <li style="float:right">
-    <a routerLink='/login' routerLinkActive="active"> Login</a>
-  </li>
-  <li style="float:right">
-    <a routerLink='/register' routerLinkActive="active"> Register</a>
+    <a routerLink='/login' routerLinkActive="active" *ngIf="loginService.isUserLoggedOut()">Login</a>
   </li>
   <li style="float:right">
     <a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a>
+  </li>
+  <li style="float:right">
+    <a routerLink='/register' routerLinkActive="active"> Register</a>
   </li>
 </ul>
 <router-outlet></router-outlet>
