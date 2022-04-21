@@ -1,13 +1,9 @@
-body {
-    font: normal 16px papyrus ;
-}
-
 h1{
-    font-style: bold;
+    font: bold 33px papyrus;
     text-align: center;
     border-radius: 25px;
     border: 2px solid #d32f2f;
-    padding: 20px;
+    padding: 10px;
 }
 
 p{
