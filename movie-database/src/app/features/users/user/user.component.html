@@ -7,15 +7,32 @@
       <input id="user-name" [(ngModel)]="user.username" placeholder="name">
     </div>
   </div>
-<h3>Movies Popular Amongst My Friends</h3>
+
+<div class="topMovies">
+
+<h3>Movies Popular Amongst My Friends:</h3>
 <a *ngFor="let movie of friends">
   <div>{{movie}}</div>
   <span></span>
 </a>
-<h3>Your Top Ten</h3>
-<a *ngFor="let movie of tenMovies">
-  <div>{{movie}}</div>
-  <span></span>
-</a>
+  
+  <h3>Your Top Ten:</h3>
+  <div class = "tenMovies">
+  <a *ngFor="let movie of tenMovies">
+    <div>{{movie}}</div>
+    <span></span>
+  </a>
+</div>
+
+
+<h3>Reccomendation:</h3>
+  <div class = "tenMovies">
+  <a *ngFor="let movie of Reccomendation">
+    <div>{{movie}}</div>
+    <span></span>
+  </a>
+</div>
+
+</div>
 
   <app-collections></app-collections>

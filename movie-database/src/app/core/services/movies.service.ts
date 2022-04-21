@@ -52,6 +52,13 @@ export class MoviesService {
       );
     }
 
+    getRecommendation(id: number): Observable<String[]> {
+      const url = `${this.moviesUrl}/getRecommendation/${id}`;
+      return this.http.get<String[]>(url).pipe(
+      catchError(this.handleError<String[]>(`getRecommendation`))
+    );
+    }  
+
   updateMovie(movie: Movie): Observable<any> {
     return this.http.put(this.moviesUrl, movie, this.httpOptions).pipe(
       catchError(this.handleError<any>('updateMovie'))

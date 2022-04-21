@@ -16,6 +16,7 @@ export class UserComponent implements OnInit {
   user: User | undefined;
   friends: String[] = []
   tenMovies: String[] = []
+  recommendation: String[] = []
 
   constructor(
     private usersService: UsersService,
@@ -27,6 +28,8 @@ export class UserComponent implements OnInit {
     this.getUser();
     this.amongstFriends();
     this.topTen();
+    this.getRecommendation();
+
   }
 
   getUser(): void {
@@ -44,4 +47,10 @@ export class UserComponent implements OnInit {
         this.moviesService.topTen(1)
         .subscribe(tenMovies => this.tenMovies = tenMovies);
       }
+
+      getRecommendation(): void{
+        this.moviesService.getRecommendation(1)
+          .subscribe(recommendation => this.recommendation = recommendation);
+      }
+      
 }
