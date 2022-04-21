@@ -70,4 +70,10 @@ public class MoviesAPIController {
         LOG.info("GET /followers/" + id);
         return movieService.followers(id);
     }
+
+    @GetMapping("/following/{id}")
+    public Integer getFollowing(@PathVariable int id) {
+        LOG.info("GET /following/" + id);
+        return movieService.getFollowing(id);
+    }
 }

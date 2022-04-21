@@ -78,7 +78,14 @@ export class MoviesService {
             return this.http.get<number>(url, this.httpOptions).pipe(
             catchError(this.handleError<number>('followers'))
           );
-          }
+  }
+
+  getFollowing(id: number): Observable<number> {
+    const url = `${this.moviesUrl}/following/${id}`;
+    return this.http.get<number>(url, this.httpOptions).pipe(
+    catchError(this.handleError<number>('following'))
+  );
+  }
 
   addMovie(movie: Movie): Observable<Movie> {
     return this.http.post<Movie>(this.moviesUrl, movie, this.httpOptions).pipe(

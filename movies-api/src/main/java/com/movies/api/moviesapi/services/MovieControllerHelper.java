@@ -74,4 +74,7 @@ public class MovieControllerHelper implements MovieService {
 
     @Override
     public Integer followers(int id) { return repository.followers(id); }
+
+    @Override
+    public Integer getFollowing(int id) { return repository.getFollowing(id); }
 }
