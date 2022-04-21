@@ -11,10 +11,12 @@
 <div class="topMovies">
 
 <h3>Movies Popular Amongst My Friends:</h3>
+<div class = "friends">
 <a *ngFor="let movie of friends">
   <div>{{movie}}</div>
   <span></span>
 </a>
+</div>
   
   <h3>Your Top Ten:</h3>
   <div class = "tenMovies">
@@ -25,9 +27,9 @@
 </div>
 
 
-<h3>Reccomendation:</h3>
-  <div class = "tenMovies">
-  <a *ngFor="let movie of Reccomendation">
+<h3>Recomendation:</h3>
+  <div class = "recommendation">
+  <a *ngFor="let movie of recommendation">
     <div>{{movie}}</div>
     <span></span>
   </a>

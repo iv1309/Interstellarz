@@ -1,0 +1,16 @@
+div.topMovies{
+    display: flex;
+}
+
+div.friends{
+    flex: 1;
+}
+
+div.tenMovies{
+    flex: 1;
+}
+
+div.recommendation{
+    flex: 1;
+    margin-left: 150px;
+}
