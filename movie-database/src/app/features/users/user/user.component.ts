@@ -14,12 +14,12 @@ import { MoviesService } from 'src/app/core/services/movies.service';
 export class UserComponent implements OnInit {
 
   user: User | undefined;
-  friends: String[] = []
-  tenMovies: String[] = []
-  recommendation: String[] = []
-  followers: number = 0
-  following: number = 0
-  collectionCount: number = 0
+  friends: String[] = [];
+  tenMovies: String[] = [];
+  recommendation: String[] = [];
+  followers: number = 0;
+  following: number = 0;
+  collectionCount: number = 0;
 
   constructor(
     private usersService: UsersService,
