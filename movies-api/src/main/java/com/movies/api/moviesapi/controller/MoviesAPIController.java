@@ -76,4 +76,10 @@ public class MoviesAPIController {
         LOG.info("GET /following/" + id);
         return movieService.getFollowing(id);
     }
+
+    @GetMapping("/collectionCount/{id}")
+    public Integer getcollectionCount(@PathVariable int id) {
+        LOG.info("GET /collectionCount/" + id);
+        return movieService.getCollectionCount(id);
+    }
 }

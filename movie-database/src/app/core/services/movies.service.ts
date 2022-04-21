@@ -87,6 +87,13 @@ export class MoviesService {
   );
   }
 
+  getCollectionCount(id: number): Observable<number> {
+    const url = `${this.moviesUrl}/collectionCount/${id}`;
+    return this.http.get<number>(url, this.httpOptions).pipe(
+    catchError(this.handleError<number>('collectionCount'))
+  );
+  }
+
   addMovie(movie: Movie): Observable<Movie> {
     return this.http.post<Movie>(this.moviesUrl, movie, this.httpOptions).pipe(
       catchError(this.handleError<Movie>('addMovie'))

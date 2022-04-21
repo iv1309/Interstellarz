@@ -19,6 +19,7 @@ export class UserComponent implements OnInit {
   recommendation: String[] = []
   followers: number = 0
   following: number = 0
+  collectionCount: number = 0
 
   constructor(
     private usersService: UsersService,
@@ -33,6 +34,7 @@ export class UserComponent implements OnInit {
     this.getRecommendation();
     this.getFollowers();
     this.getFollowing();
+    this.getCollectionCount();
   }
 
   getUser(): void {
@@ -64,6 +66,11 @@ export class UserComponent implements OnInit {
   getFollowing(): void{
     this.moviesService.getFollowing(1)
       .subscribe(following => this.following = following);
+  }
+
+  getCollectionCount(): void{
+    this.moviesService.getCollectionCount(1)
+      .subscribe(collectionCount => this.collectionCount = collectionCount);
   }
 
 }

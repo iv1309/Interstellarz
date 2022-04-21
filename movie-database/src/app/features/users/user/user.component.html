@@ -3,6 +3,7 @@
     <h2>USER: {{user.username | uppercase}}</h2>
     <div><span>Followers: </span>{{followers}}</div>
     <div><span>Following: </span>{{following}}</div>
+    <div><span>Collections: </span>{{collectionCount}}</div>
     <div>
       <label for="user-name">User name: </label>
       <input id="user-name" [(ngModel)]="user.username" placeholder="name">

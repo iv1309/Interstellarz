@@ -123,5 +123,8 @@ public interface MovieRepository extends CrudRepository<Movie, Integer> {
 
     @Query(value = "SELECT COUNT(*) FROM p320_04.follow WHERE \"followerID\" = ?1", nativeQuery = true)
     Integer getFollowing(Integer integer);
+
+    @Query(value = "SELECT COUNT(*) FROM p320_04.user_collection WHERE \"userID\"= ?1", nativeQuery = true)
+    Integer getCollectionCount(Integer integer);
 }
 
